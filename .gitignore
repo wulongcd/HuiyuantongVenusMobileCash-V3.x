@@ -1,0 +1,10 @@
+# ignore all the file in build/ directory
+build/
+# ignore all the file start with character "."
+.*
+# ingore all the file end with character "~"
+*~
+# ingore the file end with ".apk"(no .apk files)
+*.apk
+# not ingore the file .gitignore
+!.gitignore
