@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.sintn.hera.mobile.cash.R;
 import com.sintn.hera.mobile.cash.adapter.viewholder.BaseRecycleViewHolder;
 import com.sintn.hera.mobile.cash.entity.down.RegionForCashierAppDown;
-import com.sintn.hera.mobile.cash.entity.down.RegionForCashierAppDown;
 import com.sintn.hera.mobile.cash.utils.common.DensityManagerUtils;
 
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ public class RegionListAdapter<T> extends BaseRecyclerAdapter<RegionForCashierAp
 	private Context context;
 	private static int convertViewWidth; // 宽度
 	private static int convertViewHeight; // 高度
-	private int regionMode = RegionMode.CATEGORY_FIRST;
+	private int regionMode = RegionMode.REGION_OF_PROVINCE;
     private ArrayList<RegionForCashierAppDown> selectedRegions; //选中的行业position列表
 
 	@SuppressWarnings("deprecation")
@@ -58,11 +57,13 @@ public class RegionListAdapter<T> extends BaseRecyclerAdapter<RegionForCashierAp
             RelativeLayout header_of_lists = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.item_in_categoryactivity, viewHolder.viewGroup, false);
 			TextView tv_in_for_header = (TextView) header_of_lists.findViewById(R.id.tv_in_categoryItem_of_desc);
             header_of_lists.findViewById(R.id.iv_in_categoryItem_of_isSelected).setVisibility(View.GONE);
-            if(regionMode == RegionMode.CATEGORY_FIRST) {
-                tv_in_for_header.setText(R.string.choose_first_category);
-            } else if(regionMode == RegionMode.CATEGORY_SECOND) {
-                tv_in_for_header.setText(R.string.choose_second_category);
-            }
+            if(regionMode == RegionMode.REGION_OF_PROVINCE) {
+                tv_in_for_header.setText(R.string.choose_province);
+            } else if(regionMode == RegionMode.REGION_OF_CITY) {
+                tv_in_for_header.setText(R.string.choose_city);
+            } else if(regionMode == RegionMode.REGION_OF_AREA) {
+				tv_in_for_header.setText(R.string.choose_area);
+			}
 			onCreateView(header_of_lists);
 		}
 		onCreateView(viewHolder.getItemView());
@@ -106,7 +107,14 @@ public class RegionListAdapter<T> extends BaseRecyclerAdapter<RegionForCashierAp
 	}
 
 	public static class RegionMode {
-		public static int CATEGORY_FIRST = 0;
-		public static int CATEGORY_SECOND = 1;
+		public static int REGION_OF_PROVINCE = 0;
+		public static int REGION_OF_CITY = 1;
+		public static int REGION_OF_AREA = 1;
+	}
+
+	public static class RegionList {
+		public static String PROVINCE = "provinces";
+		public static String CITY = "cities";
+		public static String AREA = "areas";
 	}
 }

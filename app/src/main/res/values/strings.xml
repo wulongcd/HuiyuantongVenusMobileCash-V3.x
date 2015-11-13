@@ -226,7 +226,8 @@
     <string name="hint_string_of_ensurePassword">再次输入密码</string>
     <string name="enterpriseName_is_null">企业名称不能为空</string>
     <string name="industry_is_null">行业不能为空</string>
-    <string name="address_is_null">详细地址不能为空</string>
+    <string name="detailAddress_is_null">详细地址不能为空</string>
+    <string name="address_is_null">企业地址不能为空</string>
     <string name="enterprisePhone_is_null">企业手机不能为空</string>
     <string name="verification_is_null">验证码不能为空</string>
     <string name="enterpriseAccount_is_null">企业账号不能为空</string>
@@ -288,5 +289,11 @@
     <string name="shopNumber_is_null">店铺编号不能为空</string>
     <string name="shopAddress_is_null">店铺地址不能为空</string>
     <string name="customerService_is_null">客服电话不能为空</string>
+    <string name="customerServicePhone_not_in_patter">客服电话格式不正确</string>
+
+    <!-- regionActivity -->
+    <string name="choose_province">选择省份</string>
+    <string name="choose_city">选择城市</string>
+    <string name="choose_area">选择区域</string>
 
 </resources>

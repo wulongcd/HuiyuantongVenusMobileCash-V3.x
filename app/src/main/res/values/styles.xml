@@ -440,6 +440,7 @@
         <item name="android:paddingRight">10dp</item>
         <item name="android:paddingLeft">16dp</item>
         <item name="android:layout_centerVertical">true</item>
+        <item name="android:orientation">vertical</item>
     </style>
 
     <style name="tv_in_managerActivity_of_listItem_of_name">

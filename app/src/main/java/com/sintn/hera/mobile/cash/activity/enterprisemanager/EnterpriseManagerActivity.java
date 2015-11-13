@@ -26,7 +26,6 @@ import com.sintn.hera.mobile.cash.entity.down.ErrorObject;
 import com.sintn.hera.mobile.cash.entity.down.ShopForCashierAppDown;
 import com.sintn.hera.mobile.cash.entity.up.CommonPagerUp;
 import com.sintn.hera.mobile.cash.entity.up.EnterpriseForCashierAppUp;
-import com.sintn.hera.mobile.cash.entity.up.ShopForCashierAppUp;
 import com.sintn.hera.mobile.cash.event.MobileCashBaseEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.QueryEnterpriseInfoEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.QueryShopListEvent;
@@ -196,7 +195,7 @@ public class EnterpriseManagerActivity extends BaseActivity implements PullToRef
             return false;
         }
         if(et_in_enterpriseManagerActivity_of_detailedAddress.getText().toString().trim().length() <=0) {
-            toastManager.show(R.string.address_is_null);
+            toastManager.show(R.string.detailAddress_is_null);
             return false;
         }
         enterpriseForCashierAppUp.setAddress(et_in_enterpriseManagerActivity_of_detailedAddress.getText().toString().trim());

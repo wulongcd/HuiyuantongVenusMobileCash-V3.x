@@ -221,7 +221,6 @@ public class CashierInfoActivity extends BaseActivity {
             Intent intent = new Intent();
             intent.setClass(activity, CashierInfoActivity.class);
             activity.startActivity(intent);
-            activity.finish();
         }
     }
 
@@ -231,7 +230,6 @@ public class CashierInfoActivity extends BaseActivity {
             intent.setClass(activity, CashierInfoActivity.class);
             intent.putExtra("mode", mode);
             activity.startActivity(intent);
-            activity.finish();
         }
     }
 
@@ -242,7 +240,6 @@ public class CashierInfoActivity extends BaseActivity {
             intent.putExtra("mode", mode);
             intent.putExtra("shopManagerAccountForCashierAppUp", shopManagerAccountForCashierAppUp);
             activity.startActivity(intent);
-            activity.finish();
         }
     }
 

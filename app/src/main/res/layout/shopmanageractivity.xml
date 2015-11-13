@@ -37,15 +37,15 @@
             android:id="@+id/ll_in_shopManagerActivity_of_address"
             layout="@layout/default_item_of_edit_industry"/>
 
-        <include
-            android:id="@+id/ll_in_shopManagerActivity_of_detailedAddress"
-            layout="@layout/default_item_in_info_activity_has_edit"/>
-
         <ImageView
             android:id="@+id/long_downLine_in_default_item"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             style="@style/margin_divider"/>
+
+        <include
+            android:id="@+id/ll_in_shopManagerActivity_of_detailedAddress"
+            layout="@layout/default_item_in_info_activity_has_edit"/>
 
         <include
             android:id="@+id/rl_in_shopManagerActivity_of_cashierList"

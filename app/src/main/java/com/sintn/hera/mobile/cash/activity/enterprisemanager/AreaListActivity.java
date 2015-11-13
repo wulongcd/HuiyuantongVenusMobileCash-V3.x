@@ -22,7 +22,6 @@ import com.sintn.hera.mobile.cash.entity.down.ErrorObject;
 import com.sintn.hera.mobile.cash.entity.down.RegionForCashierAppDown;
 import com.sintn.hera.mobile.cash.entity.up.RegionForCashierAppQueryUp;
 import com.sintn.hera.mobile.cash.event.MobileCashBaseEvent;
-import com.sintn.hera.mobile.cash.event.httpevent.cash.QueryFirstCategoryEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.QuerySubRegionEvent;
 import com.sintn.hera.mobile.cash.listener.OnRecyclerViewItemClickListener;
 import com.sintn.hera.mobile.cash.manager.ActivityBaseAttribute;
@@ -44,7 +43,7 @@ import java.util.ArrayList;
  * @Author:Wxl@Sintn.Inc
  * @2015-7-8下午2:11:12
  */
-public class CityListActivity extends BaseActivity implements PullToRefreshBase.OnRefreshListener2, OnRecyclerViewItemClickListener
+public class AreaListActivity extends BaseActivity implements PullToRefreshBase.OnRefreshListener2, OnRecyclerViewItemClickListener
 {
 	//查询条件-需求页
 	private int page = 0;
@@ -54,13 +53,13 @@ public class CityListActivity extends BaseActivity implements PullToRefreshBase.
 	private boolean loadMoreOrRefresh = false;
 	//已经加载数量
 	private long loadSize = 0;
-	private RelativeLayout rl_in_cityListActivity_of_header = null;
-	private PtrRecyclerView prv_in_cityListActivity_for_lists = null;
+	private RelativeLayout rl_in_areaListActivity_of_header = null;
+	private PtrRecyclerView prv_in_areaListActivity_for_lists = null;
     private LinearLayoutManager manager;
 	private RegionListAdapter regionListAdapter = null;
-	private Button btn_in_cityListActivity_for_back = null;
-	private TextView tv_in_cityListActivity_for_title = null;
-	private TextView tv_in_cityListActivity_for_header = null;
+	private Button btn_in_areaListActivity_for_back = null;
+	private TextView tv_in_areaListActivity_for_title = null;
+	private TextView tv_in_areaListActivity_for_header = null;
 	private RegionForCashierAppQueryUp regionForCashierAppQueryUp = null;
 	private String code;
 
@@ -75,11 +74,11 @@ public class CityListActivity extends BaseActivity implements PullToRefreshBase.
 	{
 		// TODO Auto-generated method stub
 		super.OnInitUiAndData();
-		rl_in_cityListActivity_of_header = (RelativeLayout) findViewById(R.id.rl_in_cityListActivity_of_header);
-		tv_in_cityListActivity_for_header = (TextView) rl_in_cityListActivity_of_header.findViewById(R.id.tv_in_categoryItem_of_desc);
-		prv_in_cityListActivity_for_lists = (PtrRecyclerView) findViewById(R.id.prv_in_cityListActivity_for_lists);
-		btn_in_cityListActivity_for_back = (Button) findViewById(R.id.btn_normal_title_for_back);
-		tv_in_cityListActivity_for_title = (TextView) findViewById(R.id.tv_normal_title_for_show_title);
+		rl_in_areaListActivity_of_header = (RelativeLayout) findViewById(R.id.rl_in_areaListActivity_of_header);
+		tv_in_areaListActivity_for_header = (TextView) rl_in_areaListActivity_of_header.findViewById(R.id.tv_in_categoryItem_of_desc);
+		prv_in_areaListActivity_for_lists = (PtrRecyclerView) findViewById(R.id.prv_in_areaListActivity_for_lists);
+		btn_in_areaListActivity_for_back = (Button) findViewById(R.id.btn_normal_title_for_back);
+		tv_in_areaListActivity_for_title = (TextView) findViewById(R.id.tv_normal_title_for_show_title);
 		regionForCashierAppQueryUp = new RegionForCashierAppQueryUp();
 		regionListAdapter = new RegionListAdapter(this);
 		code = getIntent().hasExtra("code") ? getIntent().getStringExtra("code") : "";
@@ -92,18 +91,18 @@ public class CityListActivity extends BaseActivity implements PullToRefreshBase.
 		super.OnBindDataWithUi();
         manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
-		regionListAdapter.setRegionMode(RegionListAdapter.RegionMode.REGION_OF_CITY);
+		regionListAdapter.setRegionMode(RegionListAdapter.RegionMode.REGION_OF_AREA);
 		regionListAdapter.setOnRecyclerViewItemClickListener(this);
-		prv_in_cityListActivity_for_lists.setAdapter(regionListAdapter);
-		prv_in_cityListActivity_for_lists.setMode(PullToRefreshBase.Mode.BOTH);
-		prv_in_cityListActivity_for_lists.setOnRefreshListener(this);
-        prv_in_cityListActivity_for_lists.setLayoutManager(manager);
-		rl_in_cityListActivity_of_header.setBackgroundColor(getResources().getColor(R.color.base_bg));
-		rl_in_cityListActivity_of_header.findViewById(R.id.iv_in_categoryItem_of_isSelected).setVisibility(View.GONE);
-		tv_in_cityListActivity_for_header.setText(R.string.choose_city);
-		tv_in_cityListActivity_for_header.setTextSize(DensityManagerUtils.px2sp(this, getResources().getDimension(R.dimen.middle_textSize)));
-		tv_in_cityListActivity_for_title.setText(R.string.choose_city);
-		btn_in_cityListActivity_for_back.setOnClickListener(this);
+		prv_in_areaListActivity_for_lists.setAdapter(regionListAdapter);
+		prv_in_areaListActivity_for_lists.setMode(PullToRefreshBase.Mode.BOTH);
+		prv_in_areaListActivity_for_lists.setOnRefreshListener(this);
+        prv_in_areaListActivity_for_lists.setLayoutManager(manager);
+		rl_in_areaListActivity_of_header.setBackgroundColor(getResources().getColor(R.color.base_bg));
+		rl_in_areaListActivity_of_header.findViewById(R.id.iv_in_categoryItem_of_isSelected).setVisibility(View.GONE);
+		tv_in_areaListActivity_for_header.setText(R.string.choose_area);
+		tv_in_areaListActivity_for_header.setTextSize(DensityManagerUtils.px2sp(this, getResources().getDimension(R.dimen.middle_textSize)));
+		tv_in_areaListActivity_for_title.setText(R.string.choose_area);
+		btn_in_areaListActivity_for_back.setOnClickListener(this);
 		regionForCashierAppQueryUp.setCode(code);
 		initRegionForCashierAppQueryUp();
 		querySubRegion(true);
@@ -154,9 +153,9 @@ public class CityListActivity extends BaseActivity implements PullToRefreshBase.
 						loadSize += commonPagerDown.getList().size();
 						regionListAdapter.notifyDataSetChanged();
 						if(loadSize < commonPagerDown.getTotalCount()) {
-							prv_in_cityListActivity_for_lists.setMode(PullToRefreshBase.Mode.BOTH);
+							prv_in_areaListActivity_for_lists.setMode(PullToRefreshBase.Mode.BOTH);
 						} else {
-							prv_in_cityListActivity_for_lists.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
+							prv_in_areaListActivity_for_lists.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
 						}
 					}
 				} else {
@@ -166,9 +165,9 @@ public class CityListActivity extends BaseActivity implements PullToRefreshBase.
 						toastManager.show(ErrorObject.formatError(querySubRegionEvent.getErrorObject()));
 					}
 				}
-				prv_in_cityListActivity_for_lists.onRefreshComplete();
+				prv_in_areaListActivity_for_lists.onRefreshComplete();
 			}
-			prv_in_cityListActivity_for_lists.onRefreshComplete();
+			prv_in_areaListActivity_for_lists.onRefreshComplete();
 		}
 	}
 
@@ -187,18 +186,6 @@ public class CityListActivity extends BaseActivity implements PullToRefreshBase.
 	}
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 0 && resultCode == RESULT_OK) {
-            BaseApplication.getLocalManager();
-            regionListAdapter.getSelectedRegions();
-            data.putParcelableArrayListExtra(RegionListAdapter.RegionList.CITY, regionListAdapter.getSelectedRegions());
-            this.setResult(RESULT_OK, data);
-            this.finish();
-        }
-    }
-
-    @Override
 	protected void onInitAttribute(ActivityBaseAttribute ba)
 	{
 		super.onInitAttribute(ba);
@@ -207,9 +194,9 @@ public class CityListActivity extends BaseActivity implements PullToRefreshBase.
 
 	public static void launch(Activity activity, String code)
 	{
-		if (!CommonUtils.isActivityAreRunningBefore(activity, CityListActivity.class))
+		if (!CommonUtils.isActivityAreRunningBefore(activity, AreaListActivity.class))
 		{
-			Intent intent = new Intent(activity, CityListActivity.class);
+			Intent intent = new Intent(activity, AreaListActivity.class);
 			intent.putExtra("code", code);
 			activity.startActivityForResult(intent, 0);
 		}
@@ -246,10 +233,13 @@ public class CityListActivity extends BaseActivity implements PullToRefreshBase.
 	@Override
 	public void OnRecyclerViewItemClicked(int position) {
 		RegionForCashierAppDown regionForCashierAppDown = (RegionForCashierAppDown) regionListAdapter.getItem(position);
-        ArrayList<RegionForCashierAppDown> list = regionListAdapter.getSelectedRegions();
-        list.clear();
-        list.add(regionForCashierAppDown);
-        regionListAdapter.notifyDataSetChanged();
-		AreaListActivity.launch(this, regionForCashierAppDown.getCode());
+		ArrayList<RegionForCashierAppDown> list = regionListAdapter.getSelectedRegions();
+		list.clear();
+		list.add(regionForCashierAppDown);
+		regionListAdapter.notifyDataSetChanged();
+		Intent intent = new Intent();
+		intent.putExtra(RegionListAdapter.RegionList.AREA, list);
+		this.setResult(RESULT_OK, intent);
+		this.finish();
 	}
 }

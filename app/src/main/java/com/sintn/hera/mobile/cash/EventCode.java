@@ -72,7 +72,9 @@ public class EventCode
 	public static final int HTTP_GET_DELETE_BANDING_BANK = CODE_INC++;// 删除提现账户
 	public static final int HTTP_GET_QUERY_BANLANCE = CODE_INC++;// 查询企业到账金额
 	public static final int HTTP_POST_QUERY_WITHDRAW = CODE_INC++;// 提现
-	public static final int HTTP_POST_SET_WITHDRAW_PASSWORD= CODE_INC++;// 设置体现密码
+	public static final int HTTP_POST_SET_WITHDRAW_PASSWORD = CODE_INC++;// 设置体现密码
+	public static final int HTTP_POST_QUERY_FIRST_REGION_LIST = CODE_INC++;// 查询省份列表
+	public static final int HTTP_POST_QUERY_SUB_REGION_LIST = CODE_INC++;// 查询下级地区列表
 
 	/**
 	 * 上传系统重要BUG

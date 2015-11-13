@@ -14,14 +14,13 @@ import com.sintn.hera.mobile.cash.EventCode;
 import com.sintn.hera.mobile.cash.R;
 import com.sintn.hera.mobile.cash.URLUtils;
 import com.sintn.hera.mobile.cash.activity.base.BaseActivity;
-import com.sintn.hera.mobile.cash.activity.login.SecondCategoryActivity;
 import com.sintn.hera.mobile.cash.adapter.RegionListAdapter;
-import com.sintn.hera.mobile.cash.entity.down.CategoryForCashierAppDown;
 import com.sintn.hera.mobile.cash.entity.down.CommonPagerDown;
 import com.sintn.hera.mobile.cash.entity.down.ErrorObject;
+import com.sintn.hera.mobile.cash.entity.down.RegionForCashierAppDown;
 import com.sintn.hera.mobile.cash.entity.up.CommonPagerUp;
 import com.sintn.hera.mobile.cash.event.MobileCashBaseEvent;
-import com.sintn.hera.mobile.cash.event.httpevent.cash.QueryFirstCategoryEvent;
+import com.sintn.hera.mobile.cash.event.httpevent.cash.QueryFirstRegionEvent;
 import com.sintn.hera.mobile.cash.listener.OnRecyclerViewItemClickListener;
 import com.sintn.hera.mobile.cash.manager.ActivityBaseAttribute;
 import com.sintn.hera.mobile.cash.manager.AndroidEventManager;
@@ -89,7 +88,7 @@ public class ProvinceListActivity extends BaseActivity implements PullToRefreshB
 		super.OnBindDataWithUi();
         manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
-		regionListAdapter.setRegionMode(RegionListAdapter.RegionMode.CATEGORY_FIRST);
+		regionListAdapter.setRegionMode(RegionListAdapter.RegionMode.REGION_OF_PROVINCE);
 		regionListAdapter.setOnRecyclerViewItemClickListener(this);
 		prv_in_provinceListActivity_for_lists.setAdapter(regionListAdapter);
 		prv_in_provinceListActivity_for_lists.setMode(PullToRefreshBase.Mode.BOTH);
@@ -97,23 +96,23 @@ public class ProvinceListActivity extends BaseActivity implements PullToRefreshB
         prv_in_provinceListActivity_for_lists.setLayoutManager(manager);
 		rl_in_provinceListActivity_of_header.setBackgroundColor(getResources().getColor(R.color.base_bg));
 		rl_in_provinceListActivity_of_header.findViewById(R.id.iv_in_categoryItem_of_isSelected).setVisibility(View.GONE);
-		tv_in_provinceListActivity_for_header.setText(R.string.choose_first_category);
+		tv_in_provinceListActivity_for_header.setText(R.string.choose_province);
 		tv_in_provinceListActivity_for_header.setTextSize(DensityManagerUtils.px2sp(this, getResources().getDimension(R.dimen.middle_textSize)));
-		tv_in_provinceListActivity_for_title.setText(R.string.choose_category);
+		tv_in_provinceListActivity_for_title.setText(R.string.choose_province);
 		btn_in_provinceListActivity_for_back.setOnClickListener(this);
-		getFirstIndustry(true);
+		queryProvince(true);
 	}
 
 	/**
-	 * 获取一级行业
+	 * 获取省份列表
 	 * @param isShow 是否显示加载动画
 	 */
-	public void getFirstIndustry(boolean isShow) {
+	public void queryProvince(boolean isShow) {
 		if(isShow) {
-			DialogUtils.showLoading(this, EventCode.HTTP_POST_QUERY_FIRST_CATEGORY_LIST);
+			DialogUtils.showLoading(this, EventCode.HTTP_POST_QUERY_FIRST_REGION_LIST);
 		}
-		AndroidEventManager.getInstance().addEventListener(EventCode.HTTP_POST_QUERY_FIRST_CATEGORY_LIST, this, true);
-		AndroidEventManager.getInstance().postEvent(EventCode.HTTP_POST_QUERY_FIRST_CATEGORY_LIST, 0, URLUtils.URL_POST_QUERY_FIRST_CATEGORY_LIST, commonPagerUp);
+		AndroidEventManager.getInstance().addEventListener(EventCode.HTTP_POST_QUERY_FIRST_REGION_LIST, this, true);
+		AndroidEventManager.getInstance().postEvent(EventCode.HTTP_POST_QUERY_FIRST_REGION_LIST, 0, URLUtils.URL_POST_QUERY_FIRST_REGION_LIST, commonPagerUp);
 	}
 	/**
 	 * 初始化一级行业查询上行实体
@@ -134,13 +133,13 @@ public class ProvinceListActivity extends BaseActivity implements PullToRefreshB
 	{
 		// TODO Auto-generated method stub
 		super.onEventRunEnd(event);
-		if (EventCode.HTTP_POST_QUERY_FIRST_CATEGORY_LIST == eventCode) {
-			DialogUtils.dissMissLoading(EventCode.HTTP_POST_QUERY_FIRST_CATEGORY_LIST);
-			final QueryFirstCategoryEvent queryFirstCategoryEvent = (QueryFirstCategoryEvent) event;
-			if (queryFirstCategoryEvent.isNetSuccess()) {
-				if (queryFirstCategoryEvent.isOk()) {
-					if (queryFirstCategoryEvent.getResult() != null) {
-						CommonPagerDown commonPagerDown = queryFirstCategoryEvent.getResult();
+		if (EventCode.HTTP_POST_QUERY_FIRST_REGION_LIST == eventCode) {
+			DialogUtils.dissMissLoading(EventCode.HTTP_POST_QUERY_FIRST_REGION_LIST);
+			final QueryFirstRegionEvent queryFirstRegionEvent = (QueryFirstRegionEvent) event;
+			if (queryFirstRegionEvent.isNetSuccess()) {
+				if (queryFirstRegionEvent.isOk()) {
+					if (queryFirstRegionEvent.getResult() != null) {
+						CommonPagerDown commonPagerDown = queryFirstRegionEvent.getResult();
 						if (loadMoreOrRefresh) {
 							regionListAdapter.addAllItem(commonPagerDown.getList());
 						} else {
@@ -155,10 +154,10 @@ public class ProvinceListActivity extends BaseActivity implements PullToRefreshB
 						}
 					}
 				} else {
-					if (queryFirstCategoryEvent.getErrorObject() == null) {
-						toastManager.show(queryFirstCategoryEvent.getStrHttpResult());
+					if (queryFirstRegionEvent.getErrorObject() == null) {
+						toastManager.show(queryFirstRegionEvent.getStrHttpResult());
 					} else {
-						toastManager.show(ErrorObject.formatError(queryFirstCategoryEvent.getErrorObject()));
+						toastManager.show(ErrorObject.formatError(queryFirstRegionEvent.getErrorObject()));
 					}
 				}
 				prv_in_provinceListActivity_for_lists.onRefreshComplete();
@@ -187,7 +186,7 @@ public class ProvinceListActivity extends BaseActivity implements PullToRefreshB
         if(requestCode == 0 && resultCode == RESULT_OK) {
             BaseApplication.getLocalManager();
             regionListAdapter.getSelectedRegions();
-            data.putParcelableArrayListExtra("firstCategories", regionListAdapter.getSelectedRegions());
+            data.putParcelableArrayListExtra(RegionListAdapter.RegionList.PROVINCE, regionListAdapter.getSelectedRegions());
             this.setResult(RESULT_OK, data);
             this.finish();
         }
@@ -228,23 +227,23 @@ public class ProvinceListActivity extends BaseActivity implements PullToRefreshB
 	public void onPullDownToRefresh(PullToRefreshBase refreshView) {
 		loadMoreOrRefresh = false;
 		initCommonPagerUp();
-		getFirstIndustry(false);
+		queryProvince(false);
 	}
 
 	@Override
 	public void onPullUpToRefresh(PullToRefreshBase refreshView) {
 		loadMoreOrRefresh = true;
 		initCommonPagerUp();
-		getFirstIndustry(false);
+		queryProvince(false);
 	}
 
 	@Override
 	public void OnRecyclerViewItemClicked(int position) {
-		CategoryForCashierAppDown categoryForCashierAppDown = (CategoryForCashierAppDown) regionListAdapter.getItem(position);
-        ArrayList<CategoryForCashierAppDown> list = regionListAdapter.getSelectedRegions();
+		RegionForCashierAppDown regionForCashierAppDown = (RegionForCashierAppDown) regionListAdapter.getItem(position);
+        ArrayList<RegionForCashierAppDown> list = regionListAdapter.getSelectedRegions();
         list.clear();
-        list.add(categoryForCashierAppDown);
+        list.add(regionForCashierAppDown);
         regionListAdapter.notifyDataSetChanged();
-		SecondCategoryActivity.launch(this, categoryForCashierAppDown.getId());
+		CityListActivity.launch(this, regionForCashierAppDown.getCode());
 	}
 }

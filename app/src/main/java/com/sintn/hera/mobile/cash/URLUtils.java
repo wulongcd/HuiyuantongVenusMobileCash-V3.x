@@ -73,6 +73,10 @@ public class URLUtils {
     public static String URL_POST_QUERY_WITHDRAW = COMMON_URL + "/cashierApp/wallet/withdraw";
     // 设置体现密码
     public static String URL_POST_SET_WITHDRAW_PASSWORD = COMMON_URL + "/cashierApp/wallet/setWithdrawPassword";
+    // 查询省份列表
+    public static String URL_POST_QUERY_FIRST_REGION_LIST = COMMON_URL + "/cashierApp/region/query";
+    // 查询下级地区列表
+    public static String URL_POST_QUERY_SUB_REGION = COMMON_URL + "/cashierApp/region/querySub";
 
     /**
      * 初始化服务器地址
@@ -141,5 +145,9 @@ public class URLUtils {
         URL_POST_QUERY_WITHDRAW = COMMON_URL + "/cashierApp/wallet/withdraw";
         // 设置体现密码
         URL_POST_SET_WITHDRAW_PASSWORD = COMMON_URL + "/cashierApp/wallet/setWithdrawPassword";
+        // 查询省份列表
+        URL_POST_QUERY_FIRST_REGION_LIST = COMMON_URL + "/cashierApp/region/query";
+        // 查询下级地区列表
+        URL_POST_QUERY_SUB_REGION = COMMON_URL + "/cashierApp/region/querySub";
     }
 }

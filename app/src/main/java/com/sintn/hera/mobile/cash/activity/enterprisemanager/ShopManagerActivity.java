@@ -18,9 +18,10 @@ import com.sintn.hera.mobile.cash.R;
 import com.sintn.hera.mobile.cash.URLUtils;
 import com.sintn.hera.mobile.cash.activity.base.BaseActivity;
 import com.sintn.hera.mobile.cash.adapter.CashierListAdapter;
-import com.sintn.hera.mobile.cash.entity.down.CategoryForCashierAppDown;
+import com.sintn.hera.mobile.cash.adapter.RegionListAdapter;
 import com.sintn.hera.mobile.cash.entity.down.CommonPagerDown;
 import com.sintn.hera.mobile.cash.entity.down.ErrorObject;
+import com.sintn.hera.mobile.cash.entity.down.RegionForCashierAppDown;
 import com.sintn.hera.mobile.cash.entity.down.ShopForCashierAppDown;
 import com.sintn.hera.mobile.cash.entity.down.ShopManagerAccountForCashierAppDown;
 import com.sintn.hera.mobile.cash.entity.up.ShopForCashierAppUp;
@@ -38,7 +39,6 @@ import com.sintn.hera.mobile.cash.utils.common.PartternUtil;
 import com.sintn.hera.mobile.cash.widget.pullrecycle.PtrRecyclerView;
 import com.sintn.hera.mobile.cash.widget.pullrecycle.PullToRefreshBase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -224,8 +224,8 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
             toastManager.show(R.string.customerService_is_null);
             return false;
         }
-        if(PartternUtil.isPhone(et_in_shopManagerActivity_of_customerService.getText().toString().trim())) {
-            toastManager.show(R.string.toast_phone_not_in_patter);
+        if(!PartternUtil.isPhone(et_in_shopManagerActivity_of_customerService.getText().toString().trim())) {
+            toastManager.show(R.string.customerServicePhone_not_in_patter);
             return false;
         }
         if(btn_in_shopManagerActivity_of_address.getText().toString().trim().length() <= 0) {
@@ -233,12 +233,12 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
             return false;
         }
         if(et_in_shopManagerActivity_of_detailedAddress.getText().toString().trim().length() <=0) {
-            toastManager.show(R.string.address_is_null);
+            toastManager.show(R.string.detailAddress_is_null);
             return false;
         }
         shopForCashierAppUp.setCode(et_in_shopManagerActivity_of_shopNumber.getText().toString().trim());
         shopForCashierAppUp.setName(et_in_shopManagerActivity_of_shopName.getText().toString().trim());
-        shopForCashierAppUp.setPhone(et_in_shopManagerActivity_of_shopNumber.getText().toString().trim());
+        shopForCashierAppUp.setPhone(et_in_shopManagerActivity_of_customerService.getText().toString().trim());
         shopForCashierAppUp.setAddress(et_in_shopManagerActivity_of_detailedAddress.getText().toString().trim());
         return true;
     }
@@ -387,21 +387,16 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 0 && resultCode == RESULT_OK) {
-            List list1 = data.getCharSequenceArrayListExtra("firstCategories");
-            String industry = ((CategoryForCashierAppDown) list1.get(0)).getName();
-            List list2 = data.getCharSequenceArrayListExtra("secondCategories");
-            List<Long> categoryIds = new ArrayList<Long>();
-            for(int i=0;i<list2.size();i++) {
-                if(list2.get(i) != null) {
-                    if(i == 0) {
-                        industry += "：" + ((CategoryForCashierAppDown) list2.get(i)).getName();
-                    } else {
-                        industry += "/" + ((CategoryForCashierAppDown) list2.get(i)).getName();
-                    }
-                    categoryIds.add(((CategoryForCashierAppDown) list2.get(i)).getId());
-                }
-            }
+            RegionForCashierAppDown province = (RegionForCashierAppDown) data.getCharSequenceArrayListExtra(RegionListAdapter.RegionList.PROVINCE).get(0);
+            String industry = province.getName();
+            RegionForCashierAppDown city = (RegionForCashierAppDown) data.getCharSequenceArrayListExtra(RegionListAdapter.RegionList.CITY).get(0);
+            industry += city.getName();
+            RegionForCashierAppDown area = (RegionForCashierAppDown) data.getCharSequenceArrayListExtra(RegionListAdapter.RegionList.AREA).get(0);
+            industry += area.getName();
             btn_in_shopManagerActivity_of_address.setText(industry);
+            shopForCashierAppUp.setProvinceId(province.getId());
+            shopForCashierAppUp.setCityId(city.getId());
+            shopForCashierAppUp.setAreaId(area.getId());
         }
     }
 

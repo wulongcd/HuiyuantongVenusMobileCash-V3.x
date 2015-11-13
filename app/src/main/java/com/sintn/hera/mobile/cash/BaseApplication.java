@@ -36,9 +36,11 @@ import com.sintn.hera.mobile.cash.event.httpevent.cash.QueryBanlanceEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.QueryBindingBankListEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.QueryEnterpriseInfoEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.QueryFirstCategoryEvent;
+import com.sintn.hera.mobile.cash.event.httpevent.cash.QueryFirstRegionEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.QuerySecondCategoryEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.QueryShopCashierListEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.QueryShopListEvent;
+import com.sintn.hera.mobile.cash.event.httpevent.cash.QuerySubRegionEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.RegisterEnterpriseInfoEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.SetWithdrawPasswordEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.UpdateEnterpriseInfoEvent;
@@ -209,8 +211,12 @@ public class BaseApplication extends Application implements OnEventListener, AMa
         eventManager.addEvent(new QueryBanlanceEvent(EventCode.HTTP_GET_QUERY_BANLANCE));
         //初始化提现事件
         eventManager.addEvent(new WithdrawEvent(EventCode.HTTP_POST_QUERY_WITHDRAW));
-        //初始化设置体现密码
+        //初始化设置提现密码
         eventManager.addEvent(new SetWithdrawPasswordEvent(EventCode.HTTP_POST_SET_WITHDRAW_PASSWORD));
+        //初始化查询一级地区列表事件
+        eventManager.addEvent(new QueryFirstRegionEvent(EventCode.HTTP_POST_QUERY_FIRST_REGION_LIST));
+        //初始化查询下级地区列表事件
+        eventManager.addEvent(new QuerySubRegionEvent(EventCode.HTTP_POST_QUERY_SUB_REGION_LIST));
 //
 //		// 设置事件监听
 //		eventManager.addEventListener(EventCode.HTTP_POST_ORDER_CREATE, this, false);

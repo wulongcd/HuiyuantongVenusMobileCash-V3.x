@@ -157,7 +157,7 @@ public class RegisterActivity extends BaseActivity {
             return false;
         }
         if(et_in_registerActivity_of_address.getText().toString().trim().length() <= 0) {
-            toastManager.show(R.string.address_is_null);
+            toastManager.show(R.string.detailAddress_is_null);
             return false;
         }
         if(et_in_registerActivity_of_enterpriseAccount.getText().toString().trim().length() <= 0) {
