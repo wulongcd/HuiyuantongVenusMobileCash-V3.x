@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:minHeight="@dimen/minHeight_in_listItem_has_desc">
+
+    <ImageView
+        android:id="@+id/upLine_in_managerActivity_listItem"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        style="@style/normal_divider"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/iv_in_managerActivity_listItem_has_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/upLine_in_managerActivity_listItem"
+        style="@style/iv_in_managerActivity_listItem_has_more"/>
+
+    <LinearLayout
+        android:id="@+id/ll_in_managerActivity_of_listItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/ll_in_managerActivity_of_listItem">
+
+        <TextView
+            android:id="@+id/tv_in_managerActivity_ListItem_of_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="天府新区店"
+            style="@style/tv_in_managerActivity_of_listItem_of_name"/>
+
+        <TextView
+            android:id="@+id/tv_in_managerActivity_ListItem_of_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="天府新区"
+            style="@style/tv_in_managerActivity_of_listItem_of_desc"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/short_downLine_in_managerActivity_listItem"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        style="@style/margin_divider"/>
+
+    <ImageView
+        android:id="@+id/long_downLine_in_managerActivity_listItem"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        style="@style/normal_divider"
+        android:visibility="gone"/>
+
+</RelativeLayout><!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/src/main/res/layout/item_in_manager_activity.xml -->

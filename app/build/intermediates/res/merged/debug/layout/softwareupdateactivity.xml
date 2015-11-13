@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:CircleProgressView="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:wheel="http://schemas.android.com/tools"
+    android:id="@+id/ll_in_qecodedialog_for_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sintn_colorprimary_color"
+    android:orientation="vertical">
+
+    <com.sintn.hera.mobile.cash.widget.view.ProgressWheel
+        android:id="@+id/whell_in_softwareupdateactivity_for_defaultloading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        wheel:matProg_barColor="#5588FF"
+        wheel:matProg_progressIndeterminate="true" />
+
+    <LinearLayout
+        android:id="@+id/ll_in_softwareupdateactivity_for_tips"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_in_softwareupdateactivity_for_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/copyright_ch"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_in_softwareupdateactivity_for_showdownloading"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <com.sintn.hera.mobile.cash.widget.circleprogress.CircleProgressView
+            android:id="@+id/wwv_in_softwareupdateactivity_for_showdownloading"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            CircleProgressView:barColor="@color/holo_blue_bright"
+            CircleProgressView:barColor1="@color/holo_blue_bright"
+            CircleProgressView:barColor2="@color/holo_blue_bright"
+            CircleProgressView:barColor3="@color/holo_blue_bright"
+            CircleProgressView:barWidth="9.6dp"
+            CircleProgressView:contourSize="0dp"
+            CircleProgressView:rimColor="@color/white"
+            CircleProgressView:rimWidth="9.6dp"
+            CircleProgressView:showUnit="true"
+            CircleProgressView:unit="%"
+            CircleProgressView:unitColor="@color/white" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_in_softwareupdateactivity_for_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <LinearLayout
+
+            android:id="@+id/ll_in_softwareupdateactivity_for_cancle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/flb_in_softwareupdateactivity_for_cancle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="center"
+                android:src="@drawable/close"
+                app:backgroundTint="@color/sintn_colorprimary_color"
+                app:borderWidth="0dp"
+                app:elevation="6dp"
+                app:pressedTranslationZ="12dp"
+                app:rippleColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_in_softwareupdateactivity_for_sure"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/flb_in_softwareupdateactivity_for_sure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="center"
+                android:src="@drawable/select"
+                app:backgroundTint="@color/sintn_colorprimary_color"
+                app:borderWidth="0dp"
+                app:elevation="6dp"
+                app:pressedTranslationZ="12dp"
+                app:rippleColor="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout><!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/src/main/res/layout/softwareupdateactivity.xml -->

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sintn_colorprimary_color"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="48dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitXY"
+        android:src="@drawable/login" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:layout_margin="@dimen/fab_margin"
+        android:background="@drawable/selector_shape_white_btn"
+        android:orientation="vertical"
+        android:padding="0.5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:adjustViewBounds="true"
+                android:background="@color/transparent"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/act" />
+
+            <com.sintn.hera.mobile.cash.widget.view.EditTextWithFrame
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:inputType="text"
+                android:textColor="@color/first_class_text"
+                android:textSize="@dimen/normal_textSize"
+                tools:ignore="SpUsage,UnusedAttribute" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f0f0f0" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="0.5dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:adjustViewBounds="true"
+                android:background="@color/transparent"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/psd" />
+
+            <com.sintn.hera.mobile.cash.widget.view.EditTextWithFrame
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:inputType="textPassword"
+                android:textColor="@color/first_class_text"
+                android:textSize="@dimen/normal_textSize"
+                tools:ignore="SpUsage,UnusedAttribute" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f0f0f0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnRegister"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="44.0dp"
+            android:layout_weight="1"
+            android:layout_gravity="bottom|end"
+            android:background="@drawable/selector_shape_white_btn"
+            android:text="@string/register"
+            android:textColor="@color/selector_white_black"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="44.0dp"
+            android:layout_weight="1"
+            android:layout_gravity="bottom|end"
+            android:background="@drawable/selector_shape_white_btn"
+            android:text="@string/login"
+            android:textColor="@color/selector_white_black"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:background="@color/sintn_colorprimary_color"
+        android:gravity="center|bottom"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingBottom="2.4dp"
+            android:paddingTop="2.4dp"
+            android:text="@string/copyright_connect"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingBottom="2.4dp"
+            android:paddingTop="2.4dp"
+            android:text="@string/copyright_ch"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingBottom="2.4dp"
+            android:paddingTop="2.4dp"
+            android:text="@string/copyright_en"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+</LinearLayout>

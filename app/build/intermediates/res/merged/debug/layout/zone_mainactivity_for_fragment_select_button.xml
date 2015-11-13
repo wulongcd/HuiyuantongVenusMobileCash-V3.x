@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_in_fragment_for_show_downList"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true" >
+
+    <Button
+        android:id="@+id/btn_in_fragment_for_show_downList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_trans_noconeners_edittext"
+        android:drawableLeft="@drawable/arrow_down"
+        android:focusable="false"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="全部店铺"
+        tools:ignore="HardcodedText" />
+
+</RelativeLayout><!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/src/main/res/layout/zone_mainactivity_for_fragment_select_button.xml -->

@@ -1,0 +1,292 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="mainactivity_of_cash_tab">极速收银</string>
+    <string name="mainactivity_of_order_tab">流水统计</string>
+    <string name="mainactivity_of_order_create_hint">请输入收款金额</string>
+    <string name="digist_string_of_decimal_number">0123456789.</string>
+    <string name="mainactivity_of_order_create_weixin">微信收款</string>
+    <string name="mainactivity_of_order_create_alipay">支付宝收款</string>
+
+    <!--  -->
+    <string name="lable_qrcode_pay_of_weichat">请提示用户使用微信客户端扫码支付!</string>
+    <string name="lable_qrcode_pay_of_alipay">请提示用户使用支付宝客户端扫码支付!</string>
+    <string name="lable_rmb">￥</string>
+    <string name="show_pay_success">支付成功</string>
+    <string name="show_pay_timeout">支付超时</string>
+    <string name="sale_assisstant">收银统计</string>
+    <string name="weixin_assisstant">微信收款合计</string>
+    <string name="alipay_assisstant">支付宝收款合计</string>
+
+    <string name="show_of_are_not_need_update">应用当前是最新版本，无需升级！</string>
+    <string name="show_of_are_you_sure_to_update">应用可以更新了，确定现在下载升级么？</string>
+    <!--  -->
+
+    <!-- BsaeInfo -->
+    <string name="app_name">会员通收款宝</string>
+    <string name="copyright_en" tools:ignore="TypographyDashes">Copyright © 2015 sintn.com. All Rights Reserved.</string>
+    <string name="copyright_ch">成都星韬科技有限公司版权所有</string>
+    <string name="copyright_connect">客服电话：400-089-9848</string>
+    <string name="lable_of_choice_date">日期选择</string>
+    <string name="sure">确定</string>
+    <string name="cancle">取消</string>
+    <string name="confirm_logout">确认退出登录?</string>
+    <string name="confirm_callphone">确认拨打电话?</string>
+    <string name="progress_logouting">正在退出系统</string>
+    <string name="man_complaint_show">投诉详情</string>
+    <string name="man_aboutsoftwareactivity_show">关于软件</string>
+    <string name="man_walletactivity_show">我的钱包</string>
+    <string name="man_chioceserveractivity_show">选择服务器</string>
+    <string name="man_walletwithdrawalsactivty_show">提现</string>
+    <string name="man_walletbindbankcardsactivty_show">银行卡</string>
+    <string name="man_walletinoutrecordsactivty_show">交易流水</string>
+    <string name="man_messageactivity_show">通知</string>
+    <string name="man_changepassward_show">修改密码</string>
+    <string name="man_oldbindphoneactivity_show">绑定手机</string>
+    <string name="man_newbindphoneactivity_show">绑定手机</string>
+    <string name="man_softwareupdateactivity_show">版本更新</string>
+    <string name="string_of_submit">提交</string>
+    <!-- NetCallInfo -->
+    <string name="no_net">网络访问超时,请重试或检查是否连接网络</string>
+    <string name="http502badgetawayShowing">服务器维护中，请稍后重试！</string>
+    <string name="http401unAuthorizedShowing">身份信息过期，请重新登录！</string>
+    <string name="httpsNotArrabileNOTKonwnREsonShowing">与服务器通讯失败，请稍后重试！</string>
+    <string name="httpssMethodNotAllowedREsonShowing">无效的访问路径！</string>
+    <!-- LoginActivity -->
+    <string name="login_name">登陆账号</string>
+    <string name="hint_input_login_name">请输入员工手机号</string>
+    <string name="login_password">登录密码</string>
+    <string name="hint_input_login_password">请输入登录密码</string>
+    <string name="hint_ensure_login_password">请确认登录密码</string>
+    <string name="forget_password">忘记密码?</string>
+    <string name="next_step">下一步</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="set_password">设置</string>
+    <string name="toast_phone_null">手机号码不能为空</string>
+    <string name="toast_phone_isShort">手机号码不足11位，请输入正确的手机号</string>
+    <string name="toast_phone_not_in_patter">手机号码格式不正确</string>
+    <string name="toast_password_null">密码不能为空，请输入密码</string>
+    <string name="toast_ensurePassword_null">确认密码不能为空，请输入确认密码</string>
+    <string name="choose_account">选择账户</string>
+    <string name="string_of_sintnAccount">会员通账户</string>
+
+    <!-- retrievePassword -->
+    <string name="get_verificationCode">获取验证码</string>
+    <string name="verificationCode_is_send">验证码已发送</string>
+    <string name="verificationCode_null">验证码不能为空</string>
+    <string name="enter_verificationCode">请输入验证码</string>
+    <string name="enter_phoneNumber">请输入手机号</string>
+    <string name="retrieve_password">找回密码</string>
+
+    <!-- resetPassword -->
+    <string name="reset_password">重置密码</string>
+    <string name="reset_new_password">请设置新密码</string>
+    <string name="ensure_reset_password">请确认新密码</string>
+
+    <!-- MainActivity -->
+    <string name="tab_title_of_performance">业绩</string>
+    <string name="tab_title_of_shop">店铺排行</string>
+    <string name="tab_title_of_message">投诉消息</string>
+    <string name="tab_title_of_myself">我的</string>
+    <string name="zhi">至</string>
+    <string name="set_start_time">设置开始时间</string>
+    <string name="set_end_time">设置结束时间</string>
+    <string name="label_in_perdormance_of_choice_shop">全部店铺</string>
+    <string name="one_massage_show">通知详情</string>
+    <string name="please_use_phone_to_call">此设备没有打电话功能，请换手机登陆！</string>
+    <string name="performance_count">笔数</string>
+    <string name="total_performance">总业绩</string>
+    <string name="total_income">总提成</string>
+    <string name="sale_performance">消费业绩</string>
+    <string name="sale_income">消费提成</string>
+    <string name="recharge_performance">充值业绩</string>
+    <string name="recharge_income">充值提成</string>
+    <string name="package_performance">套餐业绩</string>
+    <string name="package_income">套餐提成</string>
+    <string name="text_of_performance">业绩</string>
+    <!-- ChangePasswardActivity -->
+    <string name="hint_input_old_passwardword">输入旧密码</string>
+    <string name="hint_input_new_passwardword">输入新密码</string>
+    <string name="hint_input_more_passwardword">确认新密码</string>
+    <string name="hint_old_more_passwardword">旧密码不能为空，输入旧密码</string>
+    <string name="hint_new_more_passwardword">新密码不能为空，输入新密码</string>
+    <string name="hint_new_passwardword_isShort">新密码不能低于六位</string>
+    <string name="hint_more_more_passwardword">再输入一次新密码</string>
+    <string name="hint_more_more_passwardwordd">新密码不一致</string>
+    <string name="hint_more_more_passwardworddd">密码修改成功</string>
+    <!-- WlletActivity -->
+    <string name="label_in_wlletactivity_of_notcome">未到账余额</string>
+    <string name="label_in_wlletactivity_of_hadcome">已到账余额</string>
+    <!-- WalletInOutRecordsActivty -->
+    <string name="tab_title_of_walltin">收入</string>
+    <string name="tab_title_of_walltout">提现</string>
+    <!-- SoftWareUpdateActivity -->
+    <string name="current_version">当前版本 %1$s</string>
+    <string name="new_version">新版本 %1$s</string>
+    <string name="version_check">检测新版本</string>
+    <string name="version_check_show">检测新版本中,请稍后。</string>
+    <string name="version_update">版本更新</string>
+    <string name="newest_version">该版本为最新版本,无需升级</string>
+    <string name="percent">%</string>
+    <string name="downloading">下载中…</string>
+    <!-- Cash -->
+    <string name="error_log_show">对不起！应用程序发生严重错误，已经上传错误信息到服务器，我们会尽快针对错误进行处理，以提高软件质量，给您带来的不便，请谅解！！！</string>
+    <!-- xlistview -->
+    <string name="listview_header_hint_normal">下拉刷新</string>
+    <string name="listview_header_hint_ready">松开刷新</string>
+    <string name="listview_header_hint_loading">正在加载...</string>
+    <string name="listview_header_last_time">上次更新时间：</string>
+    <string name="listview_footer_hint_loading">加载中...</string>
+    <string name="listview_footer_hint_normal">查看更多</string>
+    <string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">松开刷新数据</string>
+    <string name="xlistview_header_hint_loading">正在加载...</string>
+    <string name="xlistview_header_last_time">上次更新时间：</string>
+    <string name="xlistview_footer_hint_normal">上拉查看更多</string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+
+    <!--  -->
+    <string name="liushui">流水</string>
+    <string name="tongji">统计</string>
+    <string name="text_of_date">时间</string>
+    <string name="text_of_income">提成</string>
+    <string name="records_of_recharge">充值流水</string>
+    <string name="records_of_package">套餐流水</string>
+
+    <!-- myself -->
+    <string name="mine">我的</string>
+    <string name="user_info">个人信息</string>
+    <string name="change_password">修改密码</string>
+    <string name="check_version">版本检测</string>
+    <string name="change_account">账号切换</string>
+    <string name="exit">退出登录</string>
+
+    <!-- changepassword -->
+    <string name="enter_old_password">输入旧密码</string>
+    <string name="enter_new_password">输入新密码</string>
+    <string name="ensure_new_password">确认新密码</string>
+
+    <!-- SetPasswordActivity -->
+    <string name="pwd_not_equale">两次输入密码不一致</string>
+    <string name="set_pwd_failed">密码设置失败</string>
+    <string name="text_of_setpwd">设置密码</string>
+    <string name="pwd_is_short">密码输入错误，密码须在6位及以上</string>
+    <string name="ensurePwd_is_short">确认输入错误，密码不能小于6位</string>
+    <string name="pwd_update_succeed">密码修改成功</string>
+    <string name="ensurePwd_is_null">确认密码不能为空，请输入确认密码</string>
+
+    <!-- infoactivity -->
+    <string name="userName_in_infoactivity">会员名</string>
+    <string name="cardType_in_infoactivity">卡片类型</string>
+    <string name="rechargeMoeny_in_infoactivity">充值金额</string>
+    <string name="paymentType_in_infoactivity">支付方式</string>
+    <string name="dividtype_in_infoactivity">提成方式</string>
+    <string name="present_in_infoactivity">赠送</string>
+    <string name="consume_in_infoactivity">交易时间</string>
+    <string name="record_in_infoactivity">流水号</string>
+    <string name="price_in_infoactivity">价格</string>
+    <string name="consumeType_in_infoactivity">消费类型</string>
+    <string name="productInfo_in_infoactivity">商品信息</string>
+    <string name="actualPrice_in_infoactivity">现价</string>
+    <string name="originalPrice_in_infoactivity">原价</string>
+    <string name="base_in_infoactivity">提成基数</string>
+    <string name="packageName_in_infoactivity">套餐名</string>
+    <string name="rechargeInfo_in_infoactivity">充值详情</string>
+    <string name="consumeInfo_in_infoactivity">消费详情</string>
+    <string name="packageInfo_in_infoactivity">套餐详情</string>
+
+    <!-- userInfo -->
+    <string name="userNum_in_userInfo">员工编号</string>
+    <string name="phoneNum_in_userInfo">电话</string>
+    <string name="identityCard_in_userInfo">身份证</string>
+    <string name="sex_in_userInfo">性别</string>
+    <string name="birthday_in_userInfo">生日</string>
+    <string name="job_in_userInfo">职务</string>
+    <string name="shop_in_userInfo">所属店铺</string>
+    <string name="date_in_userInfo">入职时间</string>
+
+    <!-- registerActivity -->
+    <string name="string_of_enterpriseName">企业名称</string>
+    <string name="string_of_industry">所属行业</string>
+    <string name="hint_string_of_industry">请选择行业</string>
+    <string name="string_of_detailAddress">详细地址</string>
+    <string name="string_of_enterprisePhone">企业手机</string>
+    <string name="string_of_verification">验证码</string>
+    <string name="string_of_enterpriseAccount">企业账号</string>
+    <string name="string_of_setPassword">设置密码</string>
+    <string name="string_of_ensurePassword">确认密码</string>
+    <string name="string_of_enterEnterpriseName">请输入企业名称</string>
+    <string name="string_of_enterAddress">请输入企业详细地址</string>
+    <string name="string_of_enterEnterprisePhone">请输入企业手机</string>
+    <string name="string_of_enterVerification">请输入验证码</string>
+    <string name="string_of_enterEnterpriseAccount">请输入企业账号</string>
+    <string name="hint_string_of_setPassword">6-20位字母或数字</string>
+    <string name="hint_string_of_ensurePassword">再次输入密码</string>
+    <string name="enterpriseName_is_null">企业名称不能为空</string>
+    <string name="industry_is_null">行业不能为空</string>
+    <string name="address_is_null">详细地址不能为空</string>
+    <string name="enterprisePhone_is_null">企业手机不能为空</string>
+    <string name="verification_is_null">验证码不能为空</string>
+    <string name="enterpriseAccount_is_null">企业账号不能为空</string>
+    <string name="password_is_null">密码不能为空</string>
+    <string name="ensurePassword_is_null">确认密码不能为空</string>
+    <string name="password_is_short">密码不能小于于6位</string>
+    <string name="password_is_long">密码不能大于20位</string>
+    <string name="ensurePassword_is_short">确认密码不能小于于6位</string>
+    <string name="ensurePassword_is_long">确认密码不能大于20位</string>
+    <string name="ensurePassword_not_equal_password">两次密码输入不一致</string>
+    <string name="register_success">注册成功</string>
+
+    <!--  -->
+    <string name="choose_category">选择行业</string>
+    <string name="choose_first_category">请选择一级行业</string>
+    <string name="choose_second_category">请选择二级行业</string>
+
+    <!-- cashierInfoActivity -->
+    <string name="string_of_cashierInfo">收银员信息</string>
+    <string name="string_of_name">姓名</string>
+    <string name="string_of_account">账号</string>
+    <string name="string_of_pwd">密码</string>
+    <string name="hint_string_of_name">请输入收银员姓名</string>
+    <string name="hint_string_of_account">请输入收银账号</string>
+    <string name="hint_string_of_pwd">请输入收银密码</string>
+    <string name="name_is_null">收银员姓名不能为空</string>
+    <string name="account_is_null">收银员账号不能为空</string>
+    <string name="pwd_is_null">收银员密码不能为空</string>
+    <string name="hint_pwd">******</string>
+    <string name="update_cashierInfo_success">修改收银员信息成功</string>
+    <string name="add_cashierInfo_success">添加收银员成功</string>
+    <!--<string name="pwd_is_short">收银员密码不能小于6位</string>-->
+    <!--<string name="pwd_is_long">收银员密码不能大于20位</string>-->
+
+    <!-- enterpriseManager -->
+    <string name="string_of_enterpriseManager">  企业管理</string>
+    <string name="string_of_enterpriseInfo">  企业信息</string>
+    <string name="string_of_shopList">  店铺列表</string>
+    <string name="string_of_enterpriseAddress">企业地址</string>
+    <string name="string_of_unBind_phoneNumber">解绑手机</string>
+    <string name="string_of_mobile_number">手机号码</string>
+    <string name="update_enterpriseInfo_success">修改企业信息成功</string>
+
+    <!-- shopManager -->
+    <string name="string_of_shopManager">  店铺管理</string>
+    <string name="string_of_shopInfo">  店铺信息</string>
+    <string name="string_of_shopNumber">  店铺编号</string>
+    <string name="string_of_shopName">店铺名称</string>
+    <string name="string_of_customerService">客服电话</string>
+    <string name="string_of_shopAddress">店铺地址</string>
+    <string name="hint_of_shopNumber">请输入店铺编号</string>
+    <string name="hint_of_shopName">请输入店铺名称</string>
+    <string name="hint_of_customerService">请输入客服电话</string>
+    <string name="hint_of_choose_shopAddress">请选择店铺省、市、区</string>
+    <string name="string_of_cashierList">收银员列表</string>
+    <string name="update_shopInfo_success">修改店铺信息成功</string>
+    <string name="add_shop_success">添加店铺成功</string>
+    <string name="shopName_is_null">店铺名称不能为空</string>
+    <string name="shopNumber_is_null">店铺编号不能为空</string>
+    <string name="shopAddress_is_null">店铺地址不能为空</string>
+    <string name="customerService_is_null">客服电话不能为空</string>
+
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:drawableLeft="@drawable/selector_navigation_bar_back"
+    android:gravity="center"
+    android:paddingLeft="9.6dp"
+    android:paddingRight="9.6dp"
+    android:text="返回"
+    android:textColor="@color/selector_black_white"
+    android:textSize="14sp"
+    tools:ignore="HardcodedText" />
+
+<!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/src/main/res/layout/activity_base_attribute_btn_title_left_back_navigation_bar_left_back.xml -->

@@ -1,0 +1,66 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sintn_colorprimary_color"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/sintn_colorprimary_color"
+        android:gravity="center"
+        tools:ignore="UselessLeaf">
+
+        <ImageView
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:background="@color/sintn_colorprimary_color"
+        android:gravity="center|bottom"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingBottom="2.4dp"
+            android:paddingTop="2.4dp"
+            android:text="@string/copyright_connect"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingBottom="2.4dp"
+            android:paddingTop="2.4dp"
+            android:text="@string/copyright_ch"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingBottom="2.4dp"
+            android:paddingTop="2.4dp"
+            android:text="@string/copyright_en"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/sintn_colorprimary_color"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="left"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/calendar"
+            android:gravity="center"
+            android:padding="4.8dp"
+            android:text="@string/lable_of_choice_date"
+            android:textColor="@color/selector_white_black"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:background="@color/c88000000" />
+
+    <DatePicker
+        android:id="@+id/datepicker"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="2"
+        android:background="@color/transparent"
+        android:calendarViewShown="false"
+        tools:ignore="UnusedAttribute" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:background="@color/c88000000" />
+
+    <TimePicker
+        android:id="@+id/timepicker"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/zone_dialog_show_normal_message_tv_cancle"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="-2dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_shape_noconners_btn"
+            android:text="@string/cancle"
+            android:textColor="@color/selector_white_black"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/zone_dialog_show_normal_message_tv_sure"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-2dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_shape_noconners_btn"
+            android:text="@string/sure"
+            android:textColor="@color/selector_white_black"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>

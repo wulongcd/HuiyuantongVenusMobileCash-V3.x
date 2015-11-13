@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/myself_item_height"
+    android:background="@color/white" >
+
+    <ImageView
+        android:id="@+id/iv_myself_item_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/myself_item_horizontal_margin"
+        android:layout_marginLeft="@dimen/myself_item_horizontal_margin"
+        android:focusable="false"
+        android:background="@drawable/userinfo"
+        android:layout_centerVertical="true" />
+    
+    <TextView
+        android:id="@+id/tv_myself_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:focusable="false"
+        android:textColor="@color/myself_text"
+        android:textSize="@dimen/normal_textSize"
+        android:layout_toRightOf="@id/iv_myself_item_logo"
+        android:text="@string/user_info" />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:focusable="false"
+        android:layout_marginRight="@dimen/myself_item_horizontal_margin"
+        android:drawableRight="@drawable/enter_normal" />
+
+</RelativeLayout>

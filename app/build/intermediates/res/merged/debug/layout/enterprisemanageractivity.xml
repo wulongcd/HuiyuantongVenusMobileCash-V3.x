@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="@color/sintn_colorprimary_color">
+
+    <include
+        android:id="@+id/rl_in_enterpriseManagerActivity_of_title"
+        layout="@layout/zone_title_normal_has_right_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_title_height"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_in_enterpriseManagerActivity_of_title"
+        android:orientation="vertical"
+        android:background="@color/base_bg">
+
+        <include
+            android:id="@+id/rl_in_enterpriseManagerActivity_of_enterpriseInfo"
+            layout="@layout/item_in_manager_activity_of_item_title"/>
+
+        <include
+            android:id="@+id/ll_in_enterpriseManagerActivity_of_enterpriseName"
+            layout="@layout/default_item_in_info_activity_has_edit"/>
+
+        <include
+            android:id="@+id/ll_in_enterpriseManagerActivity_of_industry"
+            layout="@layout/default_item_of_edit_industry"/>
+
+        <include
+            android:id="@+id/ll_in_enterpriseManagerActivity_of_detailedAddress"
+            layout="@layout/default_item_in_info_activity_has_edit"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_in_enterpriseManagerActivity_of_enterprisePhone"
+                android:layout_width="@dimen/width_of_item_in_registerActivity"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:layout_weight="0"
+                android:text="@string/string_of_mobile_number"
+                style="@style/leftItem_in_registerActivity"/>
+
+            <com.sintn.hera.mobile.cash.widget.view.EditTextWithFrame
+                android:id="@+id/et_in_enterpriseManagerActivity_of_enterprisePhone"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:layout_weight="1"
+                style="@style/item_in_registerActivity"/>
+
+            <Button
+                android:id="@+id/btn_in_enterpriseManagerActivity_of_unbindPhone"
+                android:layout_width="@dimen/width_of_item_in_registerActivity"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:hint="@string/string_of_unBind_phoneNumber"
+                style="@style/btn_in_registerActivity_for_verification"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/long_downLine_in_default_item"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            style="@style/margin_divider"/>
+
+        <include
+            android:id="@+id/rl_in_enterpriseManagerActivity_of_shopList"
+            layout="@layout/item_in_manager_activity_of_item_title"/>
+
+        <com.sintn.hera.mobile.cash.widget.pullrecycle.PtrRecyclerView
+            android:id="@+id/prv_in_enterpriseManagerActivity_for_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4.8dp"
+            android:paddingRight="4.8dp"
+            android:background="@color/white"
+            android:fadingEdge="none"
+            android:fastScrollEnabled="false"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            android:smoothScrollbar="true" />
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fBtn_in_enterpriseManagerActivity_of_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/normal_fBtn_in_managerActivity"
+        app:backgroundTint="@color/sintn_colorprimary_color"
+        app:borderWidth="0dp"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        app:rippleColor="@color/white" />
+
+</RelativeLayout><!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/src/main/res/layout/enterprisemanageractivity.xml -->

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true"><shape>
+            <solid android:color="@color/c88000000" />
+
+            <size android:height="44dp" />
+
+            <corners android:radius="0dp" />
+        </shape></item>
+    <item><shape>
+            <solid android:color="@color/transparent" />
+
+            <size android:height="44dp" />
+
+            <corners android:radius="0dp" />
+        </shape></item>
+
+</selector><!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/src/main/res/drawable/selector_shape_noconners_btn.xml -->

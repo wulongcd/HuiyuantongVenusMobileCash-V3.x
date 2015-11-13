@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+    
+    
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="80"
+        android:layout_gravity="center"
+        layout="@layout/titile_in_orderactivity_for_statistics_or_inoutrecords" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ca8a8a8" />
+
+    <include
+        android:id="@+id/rl_in_walletinoutrecordsactivity_for_show_date"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="80"
+        layout="@layout/zone_mainactivity_layout_for_fragment_of_select_time" />
+
+    <View
+        android:id="@+id/down_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ca8a8a8" />
+    
+    <ListView
+        android:id="@+id/lv_in_walletinoutrecordsactivity_for_show_records"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1118" ></ListView>
+    
+    <ListView
+        android:id="@+id/lv_in_walletinoutrecordsactivity_for_show_statistics"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:divider="@color/transparent"
+        android:layout_weight="1118"
+        android:visibility="gone" ></ListView>
+
+</LinearLayout>
+<!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/src/main/res/layout/inoutrecordsandstatisticsactivity.xml -->
