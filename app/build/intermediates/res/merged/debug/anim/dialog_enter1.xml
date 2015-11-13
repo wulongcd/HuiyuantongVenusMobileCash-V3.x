@@ -1,9 +1,0 @@
-<set xmlns:android="http://schemas.android.com/apk/res/android"
-    android:interpolator="@android:anim/accelerate_interpolator" >
-
-    <translate
-        android:duration="100"
-        android:fromYDelta="100.0%"
-        android:toYDelta="10.000002%" />
-
-</set><!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/src/main/res/anim/dialog_enter1.xml -->

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:drawable="@color/base_bg" android:state_selected="true"></item>
-    <item android:drawable="@color/base_bg" android:state_pressed="true"></item>
-    <item android:drawable="@color/transparent"></item>
-
-</selector><!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/src/main/res/drawable/selector_of_default_item.xml -->
