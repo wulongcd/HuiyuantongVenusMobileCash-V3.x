@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vg_in_complaint_for_adapter_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/selector_white_f0f0f0"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp" >
+
+    <TextView
+        android:id="@+id/tv_in_complaint_for_adapter_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical|left"
+        android:text="标题"
+        android:textColor="#39a3e2"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_in_complaint_for_adapter_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="14dp"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:lineSpacingExtra="6dp"
+        android:maxLength="80"
+        android:textColor="#000000"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_in_complaint_for_adapter_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="12dp"
+        android:focusable="false"
+        android:gravity="center_vertical|right"
+        android:text="2013年12月31日 14:13"
+        android:textColor="#838891"
+        android:textSize="12sp"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>

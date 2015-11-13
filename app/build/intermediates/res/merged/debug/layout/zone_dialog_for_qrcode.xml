@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_in_qecodedialog_for_root"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sintn_colorprimary_color"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_in_qecodedialog_for_qrcodeimage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:scaleType="centerInside"
+            tools:ignore="NestedWeights" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/iv_in_qecodedialog_for_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:maxLines="3"
+        android:textColor="@color/white"
+        android:textSize="@dimen/normal_textSize" />
+
+    <TextView
+        android:id="@+id/iv_in_qecodedialog_for_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:maxLines="3"
+        android:textColor="@color/white"
+        android:textSize="@dimen/big_textSize"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fbtn_in_qecodedialog_for_cancle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:src="@drawable/cancle_icon"
+            app:backgroundTint="@color/sintn_colorprimary_color"
+            app:borderWidth="0dp"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            app:rippleColor="@color/white" />
+    </LinearLayout>
+</LinearLayout><!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/src/main/res/layout/zone_dialog_for_qrcode.xml -->

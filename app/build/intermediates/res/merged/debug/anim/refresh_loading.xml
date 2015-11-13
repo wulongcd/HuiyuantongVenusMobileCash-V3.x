@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/xlistview_refresh_loading"
+    android:pivotX="50%"
+    android:pivotY="50%" />
+<!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/src/main/res/anim/refresh_loading.xml -->

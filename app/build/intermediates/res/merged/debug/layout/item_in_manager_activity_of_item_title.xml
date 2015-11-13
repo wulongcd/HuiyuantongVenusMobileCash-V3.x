@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/rl_in_managerActivity_of_item_title">
+
+    <ImageView
+        android:id="@+id/iv_in_managerActivity_item_of_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/enterprise_info"/>
+
+    <TextView
+        android:id="@+id/tv_in_managerActivity_item_of_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_in_managerActivity_item_of_logo"
+        android:layout_alignBottom="@id/iv_in_managerActivity_item_of_logo"
+        android:text="@string/string_of_enterpriseManager"
+        style="@style/tv_in_managerActivity_of_item_title"/>
+
+</RelativeLayout><!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/src/main/res/layout/item_in_manager_activity_of_item_title.xml -->

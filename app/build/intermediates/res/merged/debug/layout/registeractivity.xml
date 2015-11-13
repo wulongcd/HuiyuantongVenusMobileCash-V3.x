@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/sintn_colorprimary_color">
+
+        <include
+            layout="@layout/zone_title_normal_has_right_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_title_height"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/base_bg">
+
+            <TextView
+                android:id="@+id/tv_in_registerActivity_of_enterprise"
+                android:layout_width="@dimen/width_of_item_in_registerActivity"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:layout_weight="0"
+                android:text="@string/string_of_enterpriseName"
+                style="@style/leftItem_in_registerActivity"/>
+
+            <com.sintn.hera.mobile.cash.widget.view.EditTextWithFrame
+                android:id="@+id/et_in_registerActivity_of_enterprise"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:layout_weight="1"
+                android:hint="@string/string_of_enterEnterpriseName"
+                style="@style/item_in_registerActivity"/>
+
+        </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/normal_divider"/>
+
+        <include
+            android:id="@+id/ll_in_registerActivity_of_industry"
+            layout="@layout/default_item_of_edit_industry"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            style="@style/normal_divider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/base_bg">
+
+            <TextView
+                android:id="@+id/tv_in_registerActivity_of_address"
+                android:layout_width="@dimen/width_of_item_in_registerActivity"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:layout_weight="0"
+                android:text="@string/string_of_detailAddress"
+                style="@style/leftItem_in_registerActivity"/>
+
+            <com.sintn.hera.mobile.cash.widget.view.EditTextWithFrame
+                android:id="@+id/et_in_registerActivity_of_address"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:layout_weight="1"
+                android:hint="@string/string_of_enterAddress"
+                style="@style/item_in_registerActivity"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            style="@style/normal_divider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/base_bg">
+
+            <TextView
+                android:id="@+id/tv_in_registerActivity_of_phone"
+                android:layout_width="@dimen/width_of_item_in_registerActivity"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:layout_weight="0"
+                android:text="@string/string_of_enterprisePhone"
+                style="@style/leftItem_in_registerActivity"/>
+
+            <com.sintn.hera.mobile.cash.widget.view.EditTextWithFrame
+                android:id="@+id/et_in_registerActivity_of_phone"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:layout_weight="1"
+                android:hint="@string/string_of_enterEnterprisePhone"
+                android:inputType="number"
+                style="@style/item_in_registerActivity"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            style="@style/normal_divider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/base_bg">
+
+            <TextView
+                android:id="@+id/tv_in_registerActivity_of_verification"
+                android:layout_width="@dimen/width_of_item_in_registerActivity"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:layout_weight="0"
+                android:text="@string/string_of_verification"
+                style="@style/leftItem_in_registerActivity"/>
+
+            <com.sintn.hera.mobile.cash.widget.view.EditTextWithFrame
+                android:id="@+id/et_in_registerActivity_of_verification"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:layout_weight="1"
+                android:hint="@string/string_of_enterVerification"
+                android:digits="0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                style="@style/item_in_registerActivity"/>
+
+            <Button
+                android:id="@+id/btn_in_registerActivity_of_verification"
+                android:layout_width="@dimen/width_of_item_in_registerActivity"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:hint="@string/get_verificationCode"
+                style="@style/btn_in_registerActivity_for_verification"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            style="@style/normal_divider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/base_bg">
+
+            <TextView
+                android:id="@+id/tv_in_registerActivity_of_enterpriseAccount"
+                android:layout_width="@dimen/width_of_item_in_registerActivity"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:layout_weight="0"
+                android:text="@string/string_of_enterpriseAccount"
+                style="@style/leftItem_in_registerActivity"/>
+
+            <com.sintn.hera.mobile.cash.widget.view.EditTextWithFrame
+                android:id="@+id/et_in_registerActivity_of_enterpriseAccount"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:layout_weight="1"
+                android:hint="@string/string_of_enterEnterpriseAccount"
+                style="@style/item_in_registerActivity"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            style="@style/normal_divider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/base_bg">
+
+            <TextView
+                android:id="@+id/tv_in_registerActivity_of_setPassword"
+                android:layout_width="@dimen/width_of_item_in_registerActivity"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:layout_weight="0"
+                android:text="@string/string_of_setPassword"
+                style="@style/leftItem_in_registerActivity"/>
+
+            <com.sintn.hera.mobile.cash.widget.view.EditTextWithFrame
+                android:id="@+id/et_in_registerActivity_of_setPassword"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:layout_weight="1"
+                android:hint="@string/hint_string_of_setPassword"
+                style="@style/et_in_registerActivity_of_pwd"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            style="@style/normal_divider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/base_bg">
+
+            <TextView
+                android:id="@+id/tv_in_registerActivity_of_ensurePassword"
+                android:layout_width="@dimen/width_of_item_in_registerActivity"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:layout_weight="0"
+                android:text="@string/string_of_ensurePassword"
+                style="@style/leftItem_in_registerActivity"/>
+
+            <com.sintn.hera.mobile.cash.widget.view.EditTextWithFrame
+                android:id="@+id/et_in_registerActivity_of_ensurePassword"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
+                android:layout_weight="1"
+                android:hint="@string/hint_string_of_ensurePassword"
+                style="@style/et_in_registerActivity_of_pwd"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            style="@style/normal_divider"/>
+
+    </LinearLayout>
+
+</ScrollView><!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/src/main/res/layout/registeractivity.xml -->

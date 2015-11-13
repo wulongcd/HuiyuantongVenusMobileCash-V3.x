@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_in_fragment_for_show_downList"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/default_title_height"
+    android:background="@color/transparent"
+    android:orientation="horizontal" >
+    
+    <TextView
+        android:id="@+id/tv_normal_title_for_show_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/normal_tv_of_title" />
+
+    <Button
+        android:id="@+id/btn_normal_title_for_back"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        style="@style/normal_back_btn" />
+
+    <Button
+        android:id="@+id/btn_normal_title_for_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        style="@style/normal_right_btn"/>
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/view_below_title" />
+
+</RelativeLayout><!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/src/main/res/layout/zone_title_normal_has_right_btn.xml -->

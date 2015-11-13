@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/selector_white_f0f0f0"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:id="@+id/ll_in_order_for_asssit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/chart_in_order_for_asssit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_in_order_for_total"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+
+            <TextView
+                android:id="@+id/tv_in_order_query_weixin_assisstant"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|left"
+                android:textColor="@color/c333333"
+                android:drawableLeft="@drawable/weixin_logo"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
+
+
+            <TextView
+                android:id="@+id/tv_in_order_query_alipay_assisstant"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16.0dp"
+                android:gravity="center_vertical|left"
+                android:textColor="@color/c333333"
+                android:drawableLeft="@drawable/alipay_logo"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_in_order_for_normal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_in_order_query_date"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical|left"
+                android:text="2015年10月27日15:43:21"
+                android:textColor="@color/c333333"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
+
+
+            <TextView
+                android:id="@+id/tv_in_order_query_value"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="4.8dp"
+                android:layout_weight="2"
+                android:focusable="false"
+                android:gravity="center_vertical|right"
+                android:text="￥999,111,111.00"
+                android:textColor="#39a3e2"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/iv_in_order_query_paymenttype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4.8dp"
+                android:src="@drawable/weixin_logo" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/v_in_order_query_deadline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/cf0f0f0" />
+</LinearLayout>
