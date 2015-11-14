@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sintn_colorprimary_color"
+    android:gravity="center_vertical">
+
+
+    <com.sintn.hera.mobile.cash.widget.numberbar.NumberProgressBar
+        android:id="@+id/numpb_in_dialog_for_progress"
+        style="@style/NumberProgressBar_Default"
+        android:layout_width="match_parent"
+        android:layout_margin="4.8dp"
+        android:layout_height="wrap_content" />
+<!--
+        custom:progress_curent="80"
+        custom:progress_max="100"
+        custom:progress_reached_bar_height="4.8dp"
+        custom:progress_reached_color="@color/white"
+        custom:progress_text_color="@color/white"
+        custom:progress_text_offset="1dp"
+        custom:progress_text_size="10sp"
+        custom:progress_text_visibility="visible"
+        custom:progress_unreached_bar_height="4.05dp"
+        custom:progress_unreached_color="#CCCCCC"-->
+</RelativeLayout>
