@@ -10,8 +10,8 @@ package com.sintn.hera.mobile.cash;
  */
 public class URLUtils {
     // 发布
-    public static String HOST = "http://www.sintn.com";
-//    public static String HOST = "http://192.168.0.111:8080";
+//    public static String HOST = "http://www.sintn.com";
+    public static String HOST = "http://192.168.0.111:8080";
 
     // 根工程目录
     public static String COMMON_URL = HOST + "/venus";

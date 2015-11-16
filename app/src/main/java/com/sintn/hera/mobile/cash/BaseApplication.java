@@ -89,7 +89,7 @@ public class BaseApplication extends Application implements OnEventListener, AMa
     /**
      * 测试么？
      */
-    private static boolean isNowTest = true;
+    private static boolean isNowTest = false;
     /**
      * application单例对象
      */

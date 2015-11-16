@@ -11,6 +11,9 @@ public class BalanceForCashierAppDown
 	// 未到账金额
 	private double notToAccount;
 
+	//提现密码
+	private String password;
+
 	public double getToAccount()
 	{
 		return toAccount;
@@ -29,5 +32,13 @@ public class BalanceForCashierAppDown
 	public void setNotToAccount(double notToAccount)
 	{
 		this.notToAccount = notToAccount;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

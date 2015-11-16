@@ -21,7 +21,7 @@
             android:layout_height="@dimen/height_of_leftItem_in_infoActivity"
             android:layout_weight="0"
             android:text="@string/string_of_enterpriseName"
-            style="@style/tv_in_infoActivity"/>
+            style="@style/leftItem_in_registerActivity"/>
 
         <com.sintn.hera.mobile.cash.widget.view.EditTextWithFrame
             android:id="@+id/et_in_infoActivity_item"

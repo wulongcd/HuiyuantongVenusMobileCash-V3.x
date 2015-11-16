@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:2:1-129:12
+ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:2:1-141:12
 	package
 		ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:4:5-41
 		INJECTED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml
@@ -144,7 +144,7 @@ ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\An
 	android:name
 		ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:64:22-72
 application
-ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:66:5-127:19
+ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:66:5-139:19
 MERGED from [com.github.ShogoMizumoto:ZDepthShadowLayout:1.0.4] E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\build\intermediates\exploded-aar\com.github.ShogoMizumoto\ZDepthShadowLayout\1.0.4\AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:support-v4:23.1.0] E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.0\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:appcompat-v7:23.1.0] E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.0\AndroidManifest.xml:22:5-20
@@ -244,12 +244,30 @@ ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\An
 		ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:122:13-56
 	android:name
 		ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:121:13-101
-activity#com.sintn.hera.mobile.cash.activity.enterprisemanager.CashierInfoActivity
+activity#com.sintn.hera.mobile.cash.activity.enterprisemanager.ProvinceListActivity
 ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:124:9-126:59
 	android:theme
 		ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:126:13-56
 	android:name
-		ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:125:13-101
+		ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:125:13-76
+activity#com.sintn.hera.mobile.cash.activity.enterprisemanager.CityListActivity
+ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:128:9-130:59
+	android:theme
+		ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:130:13-56
+	android:name
+		ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:129:13-98
+activity#com.sintn.hera.mobile.cash.activity.enterprisemanager.AreaListActivity
+ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:132:9-134:59
+	android:theme
+		ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:134:13-56
+	android:name
+		ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:133:13-98
+activity#com.sintn.hera.mobile.cash.activity.enterprisemanager.CashierInfoActivity
+ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:136:9-138:59
+	android:theme
+		ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:138:13-56
+	android:name
+		ADDED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml:137:13-101
 uses-sdk
 INJECTED from E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.github.ShogoMizumoto:ZDepthShadowLayout:1.0.4] E:\Code\收款宝\worker\HuiyuantongVenusMobileCash-V3.x\app\build\intermediates\exploded-aar\com.github.ShogoMizumoto\ZDepthShadowLayout\1.0.4\AndroidManifest.xml:7:5-9:41

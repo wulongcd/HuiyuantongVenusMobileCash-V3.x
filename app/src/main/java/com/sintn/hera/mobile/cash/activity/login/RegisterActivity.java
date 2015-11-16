@@ -66,12 +66,12 @@ public class RegisterActivity extends BaseActivity {
         btn_in_registerActivity_of_back = (Button) findViewById(R.id.btn_normal_title_for_back);
         btn_in_registerActivity_of_right = (Button) findViewById(R.id.btn_normal_title_for_right);
         btn_in_registerActivity_of_industry = (Button) findViewById(R.id.btn_in_editItem_of_industry);
-        btn_in_registerActivity_of_verification = (Button) findViewById(R.id.btn_in_registerActivity_of_verification);
+        btn_in_registerActivity_of_verification = (Button) findViewById(R.id.btn_in_verification_item_of_verification);
         tv_in_registerActivity_of_title = (TextView) findViewById(R.id.tv_normal_title_for_show_title);
         et_in_registerActivity_of_enterprise = (EditText) findViewById(R.id.et_in_registerActivity_of_enterprise);
         et_in_registerActivity_of_address = (EditText) findViewById(R.id.et_in_registerActivity_of_address);
         et_in_registerActivity_of_phone = (EditText) findViewById(R.id.et_in_registerActivity_of_phone);
-        et_in_registerActivity_of_verification = (EditText) findViewById(R.id.et_in_registerActivity_of_verification);
+        et_in_registerActivity_of_verification = (EditText) findViewById(R.id.et_in_verification_item_of_verification);
         et_in_registerActivity_of_enterpriseAccount = (EditText) findViewById(R.id.et_in_registerActivity_of_enterpriseAccount);
         et_in_registerActivity_of_setPassword = (EditText) findViewById(R.id.et_in_registerActivity_of_setPassword);
         et_in_registerActivity_of_ensurePassword = (EditText) findViewById(R.id.et_in_registerActivity_of_ensurePassword);
@@ -107,7 +107,7 @@ public class RegisterActivity extends BaseActivity {
             case R.id.btn_in_editItem_of_industry:
                 FirstCategoryActivity.launch(this);
                 break;
-            case R.id.btn_in_registerActivity_of_verification:
+            case R.id.btn_in_verification_item_of_verification:
                 if(et_in_registerActivity_of_phone.getText().toString().trim().length() <= 0) {
                     toastManager.show(R.string.enterprisePhone_is_null);
                 } else {

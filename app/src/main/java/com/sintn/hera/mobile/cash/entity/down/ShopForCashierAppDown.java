@@ -19,17 +19,44 @@ public class ShopForCashierAppDown implements Parcelable {
 	// 店铺电话
 	private String phone;
 	
-	// 省
+	// 省，系统内部使用
 	private String province;
 	
-	// 市
+	// 省
+	private RegionForCashierAppDown provinceDown;
+	
+	// 市，系统内部使用
 	private String city;
 	
-	// 区
+	// 省
+	private RegionForCashierAppDown cityDown;
+	
+	// 区，系统内部使用
 	private String area;
+	
+	// 省
+	private RegionForCashierAppDown areaDown;
 	
 	// 地址
 	private String address;
+	
+	public ShopForCashierAppDown()
+	{
+		
+	}
+	
+	public ShopForCashierAppDown(Long id, String code, String name, 
+			String phone, Long province, Long city, Long area, String address)
+	{
+		this.id = id;
+		this.code = code;
+		this.name = name;
+		this.phone = phone;
+		this.province = province + "";
+		this.city = city + "";
+		this.area = area + "";
+		this.address = address;
+	}
 
 	public long getId()
 	{
@@ -81,6 +108,16 @@ public class ShopForCashierAppDown implements Parcelable {
 		this.province = province;
 	}
 
+	public RegionForCashierAppDown getProvinceDown()
+	{
+		return provinceDown;
+	}
+
+	public void setProvinceDown(RegionForCashierAppDown provinceDown)
+	{
+		this.provinceDown = provinceDown;
+	}
+
 	public String getCity()
 	{
 		return city;
@@ -91,6 +128,16 @@ public class ShopForCashierAppDown implements Parcelable {
 		this.city = city;
 	}
 
+	public RegionForCashierAppDown getCityDown()
+	{
+		return cityDown;
+	}
+
+	public void setCityDown(RegionForCashierAppDown cityDown)
+	{
+		this.cityDown = cityDown;
+	}
+
 	public String getArea()
 	{
 		return area;
@@ -99,6 +146,16 @@ public class ShopForCashierAppDown implements Parcelable {
 	public void setArea(String area)
 	{
 		this.area = area;
+	}
+
+	public RegionForCashierAppDown getAreaDown()
+	{
+		return areaDown;
+	}
+
+	public void setAreaDown(RegionForCashierAppDown areaDown)
+	{
+		this.areaDown = areaDown;
 	}
 
 	public String getAddress()
@@ -123,12 +180,12 @@ public class ShopForCashierAppDown implements Parcelable {
 		dest.writeString(this.name);
 		dest.writeString(this.phone);
 		dest.writeString(this.province);
+		dest.writeParcelable(this.provinceDown, 0);
 		dest.writeString(this.city);
+		dest.writeParcelable(this.cityDown, 0);
 		dest.writeString(this.area);
+		dest.writeParcelable(this.areaDown, 0);
 		dest.writeString(this.address);
-	}
-
-	public ShopForCashierAppDown() {
 	}
 
 	protected ShopForCashierAppDown(Parcel in) {
@@ -137,8 +194,11 @@ public class ShopForCashierAppDown implements Parcelable {
 		this.name = in.readString();
 		this.phone = in.readString();
 		this.province = in.readString();
+		this.provinceDown = in.readParcelable(RegionForCashierAppDown.class.getClassLoader());
 		this.city = in.readString();
+		this.cityDown = in.readParcelable(RegionForCashierAppDown.class.getClassLoader());
 		this.area = in.readString();
+		this.areaDown = in.readParcelable(RegionForCashierAppDown.class.getClassLoader());
 		this.address = in.readString();
 	}
 

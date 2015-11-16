@@ -100,6 +100,8 @@ public class EventCode
 	public static final int CALLBACK_IN_FRAGMENT_TASK_ACTIVITY_THAT_NET_ERROR = CODE_INC++;// 提现OK
 	public static final int CALLBACK_OF_CHECKLOGIN_OK = CODE_INC++;// 检查是否登录
 	public static final int CALLBACK_OF_CANUPDATE_AREYOU_SURE_TO_UPDATE = CODE_INC++;// 检查是否登录
+	public static final int CALLBACK_OF_CASHIER_INFO_UPDATE = CODE_INC++;// 收银员信息更新
+	public static final int CALLBACK_OF_SHOP_INFO_UPDATE = CODE_INC++;// 店铺信息更新
 	/**
 	 * 对话框回调
 	 */

@@ -325,7 +325,8 @@
     </style>
 
     <style name="margin_divider" parent="normal_divider">
-        <item name="android:layout_marginLeft">@dimen/marginLeft_of_item_in_registerActivity</item>
+        <item name="android:layout_marginLeft">@dimen/margin_left_in_infoActivity_of_item</item>
+        <item name="android:layout_marginRight">@dimen/margin_left_in_infoActivity_of_item</item>
     </style>
 
     <!-- style in title -->
@@ -362,6 +363,10 @@
         <item name="android:ellipsize">end</item>
     </style>
 
+    <style name="et_of_phone" parent="item_in_registerActivity">
+        <item name="android:inputType">number</item>
+    </style>
+
     <style name="et_in_registerActivity_of_pwd" parent="item_in_registerActivity">
         <item name="android:inputType">textPassword</item>
     </style>
@@ -371,7 +376,7 @@
     </style>
 
     <style name="leftItem_in_registerActivity" parent="item_in_registerActivity">
-        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingLeft">@dimen/margin_left_in_infoActivity_of_item</item>
         <item name="android:textColor">@color/dark_text</item>
     </style>
 
@@ -413,14 +418,15 @@
     <style name="et_in_infoActivity" parent="base_style_in_cashApp">
         <item name="android:textColor">@color/light_text</item>
         <item name="android:background">@color/transparent</item>
+        <item name="android:paddingRight">@dimen/margin_left_in_infoActivity_of_item</item>
     </style>
 
     <!-- style in managerActivity -->
 
     <style name="rl_in_managerActivity_of_item_title">
-        <item name="android:layout_marginLeft">16dp</item>
-        <item name="android:layout_marginBottom">16dp</item>
-        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingTop">16dp</item>
     </style>
 
     <style name="tv_in_managerActivity_of_item_title">
@@ -436,9 +442,12 @@
         <item name="android:layout_alignParentRight">true</item>
     </style>
 
-    <style name="ll_in_managerActivity_of_listItem">
-        <item name="android:paddingRight">10dp</item>
-        <item name="android:paddingLeft">16dp</item>
+    <style name="baseItem_style_of_ll">
+        <item name="android:paddingRight">@dimen/margin_left_in_infoActivity_of_item</item>
+        <item name="android:paddingLeft">@dimen/margin_left_in_infoActivity_of_item</item>
+    </style>
+
+    <style name="ll_in_managerActivity_of_listItem" parent="baseItem_style_of_ll">
         <item name="android:layout_centerVertical">true</item>
         <item name="android:orientation">vertical</item>
     </style>
@@ -459,8 +468,6 @@
     <style name="normal_fBtn_in_managerActivity">
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:layout_alignParentRight">true</item>
-        <item name="android:layout_marginRight">10dp</item>
-        <item name="android:layout_marginBottom">10dp</item>
         <item name="android:scaleType">center</item>
         <item name="android:src">@drawable/plus</item>
     </style>

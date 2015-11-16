@@ -9,15 +9,15 @@
         android:layout_height="@dimen/default_title_height"/>
 
     <include
-        android:id="@+id/rl_in_cityActivity_of_header"
+        android:id="@+id/rl_in_cityListActivity_of_header"
         layout="@layout/item_in_categoryactivity"
         android:layout_width="match_parent"
         android:layout_height="@dimen/default_title_height"/>
 
     <com.sintn.hera.mobile.cash.widget.pullrecycle.PtrRecyclerView
-        android:id="@+id/prv_in_cityActivity_for_lists"
+        android:id="@+id/prv_in_cityListActivity_for_lists"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/base_bg"/>
 
-</LinearLayout><!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/src/main/res/layout/cityactivity.xml -->
+</LinearLayout><!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/src/main/res/layout/citylistactivity.xml -->

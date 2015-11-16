@@ -7,14 +7,13 @@
         android:id="@+id/upLine_in_managerActivity_listItem"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        style="@style/normal_divider"
+        style="@style/margin_divider"
         android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/iv_in_managerActivity_listItem_has_more"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/upLine_in_managerActivity_listItem"
         style="@style/iv_in_managerActivity_listItem_has_more"/>
 
     <LinearLayout

@@ -577,7 +577,7 @@
     <string name="actualPrice_in_infoactivity">现价</string>
     <string name="add_cashierInfo_success">添加收银员成功</string>
     <string name="add_shop_success">添加店铺成功</string>
-    <string name="address_is_null">详细地址不能为空</string>
+    <string name="address_is_null">企业地址不能为空</string>
     <string name="alipay_assisstant">支付宝收款合计</string>
     <string name="app_name">会员通收款宝</string>
     <!-- From: file:/E:/Code/收款宝/worker/HuiyuantongVenusMobileCash-V3.x/app/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
@@ -598,8 +598,11 @@
     <eat-comment/>
     <string name="check_version">版本检测</string>
     <string name="choose_account">选择账户</string>
+    <string name="choose_area">选择区域</string>
     <string name="choose_category">选择行业</string>
+    <string name="choose_city">选择城市</string>
     <string name="choose_first_category">请选择一级行业</string>
+    <string name="choose_province">选择省份</string>
     <string name="choose_second_category">请选择二级行业</string>
     <string name="confirm_callphone">确认拨打电话?</string>
     <string name="confirm_logout">确认退出登录?</string>
@@ -610,8 +613,11 @@
     <string name="copyright_connect">客服电话：400-089-9848</string>
     <string name="copyright_en" ns1:ignore="TypographyDashes">Copyright © 2015 sintn.com. All Rights Reserved.</string>
     <string name="current_version">当前版本 %1$s</string>
+    <string name="customerServicePhone_not_in_patter">客服电话格式不正确</string>
     <string name="customerService_is_null">客服电话不能为空</string>
     <string name="date_in_userInfo">入职时间</string>
+    <string name="delete_cashierInfo_success">删除收银员成功</string>
+    <string name="detailAddress_is_null">详细地址不能为空</string>
     <string name="digist_string_of_decimal_number">0123456789.</string>
     <string name="dividtype_in_infoactivity">提成方式</string>
     <string name="downloading">下载中…</string>
@@ -2417,6 +2423,10 @@
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:backgroundDimAmount">0.0</item>
     </style>
+    <style name="baseItem_style_of_ll">
+        <item name="android:paddingRight">@dimen/margin_left_in_infoActivity_of_item</item>
+        <item name="android:paddingLeft">@dimen/margin_left_in_infoActivity_of_item</item>
+    </style>
     <style name="base_style_in_cashApp">
         <item name="android:gravity">center_vertical|left</item>
         <item name="android:textSize">@dimen/normal_textSize</item>
@@ -2447,6 +2457,7 @@
     <style name="et_in_infoActivity" parent="base_style_in_cashApp">
         <item name="android:textColor">@color/light_text</item>
         <item name="android:background">@color/transparent</item>
+        <item name="android:paddingRight">@dimen/margin_left_in_infoActivity_of_item</item>
     </style>
     <style name="et_in_registerActivity_of_pwd" parent="item_in_registerActivity">
         <item name="android:inputType">textPassword</item>
@@ -2496,16 +2507,16 @@
         <item name="android:layout_alignParentRight">true</item>
     </style>
     <style name="leftItem_in_registerActivity" parent="item_in_registerActivity">
-        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingLeft">@dimen/margin_left_in_infoActivity_of_item</item>
         <item name="android:textColor">@color/dark_text</item>
     </style>
-    <style name="ll_in_managerActivity_of_listItem">
-        <item name="android:paddingRight">10dp</item>
-        <item name="android:paddingLeft">16dp</item>
+    <style name="ll_in_managerActivity_of_listItem" parent="baseItem_style_of_ll">
         <item name="android:layout_centerVertical">true</item>
+        <item name="android:orientation">vertical</item>
     </style>
     <style name="margin_divider" parent="normal_divider">
-        <item name="android:layout_marginLeft">@dimen/marginLeft_of_item_in_registerActivity</item>
+        <item name="android:layout_marginLeft">@dimen/margin_left_in_infoActivity_of_item</item>
+        <item name="android:layout_marginRight">@dimen/margin_left_in_infoActivity_of_item</item>
     </style>
     <style name="mystyle" parent="android:Animation">
         <item name="@android:windowEnterAnimation">@anim/dialog_enter1</item>
@@ -2550,8 +2561,6 @@
     <style name="normal_fBtn_in_managerActivity">
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:layout_alignParentRight">true</item>
-        <item name="android:layout_marginRight">10dp</item>
-        <item name="android:layout_marginBottom">10dp</item>
         <item name="android:scaleType">center</item>
         <item name="android:src">@drawable/plus</item>
     </style>
@@ -2569,9 +2578,9 @@
         <item name="android:textSize">16dp</item>
     </style>
     <style name="rl_in_managerActivity_of_item_title">
-        <item name="android:layout_marginLeft">16dp</item>
-        <item name="android:layout_marginBottom">16dp</item>
-        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingTop">16dp</item>
     </style>
     <style name="tv_in_categoryActivity_of_item">
         <item name="android:textSize">@dimen/normal_textSize</item>

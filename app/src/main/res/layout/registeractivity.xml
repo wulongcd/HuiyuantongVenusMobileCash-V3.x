@@ -33,7 +33,7 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
                 android:layout_weight="1"
-                android:hint="@string/string_of_enterEnterpriseName"
+                android:hint="@string/hint_string_of_enterpriseName"
                 style="@style/item_in_registerActivity"/>
 
         </LinearLayout>
@@ -71,7 +71,7 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
                 android:layout_weight="1"
-                android:hint="@string/string_of_enterAddress"
+                android:hint="@string/hint_string_of_address"
                 style="@style/item_in_registerActivity"/>
 
         </LinearLayout>
@@ -100,9 +100,9 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
                 android:layout_weight="1"
-                android:hint="@string/string_of_enterEnterprisePhone"
+                android:hint="@string/hint_string_of_enterprisePhone"
                 android:inputType="number"
-                style="@style/item_in_registerActivity"/>
+                style="@style/et_of_phone"/>
 
         </LinearLayout>
 
@@ -111,42 +111,7 @@
             android:layout_height="1dp"
             style="@style/normal_divider"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@color/base_bg">
-
-            <TextView
-                android:id="@+id/tv_in_registerActivity_of_verification"
-                android:layout_width="@dimen/width_of_item_in_registerActivity"
-                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
-                android:layout_weight="0"
-                android:text="@string/string_of_verification"
-                style="@style/leftItem_in_registerActivity"/>
-
-            <com.sintn.hera.mobile.cash.widget.view.EditTextWithFrame
-                android:id="@+id/et_in_registerActivity_of_verification"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
-                android:layout_weight="1"
-                android:hint="@string/string_of_enterVerification"
-                android:digits="0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                style="@style/item_in_registerActivity"/>
-
-            <Button
-                android:id="@+id/btn_in_registerActivity_of_verification"
-                android:layout_width="@dimen/width_of_item_in_registerActivity"
-                android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
-                android:hint="@string/get_verificationCode"
-                style="@style/btn_in_registerActivity_for_verification"/>
-
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            style="@style/normal_divider"/>
+        <include layout="@layout/item_of_get_verification"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -167,7 +132,7 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height_of_leftItem_in_registerActivity"
                 android:layout_weight="1"
-                android:hint="@string/string_of_enterEnterpriseAccount"
+                android:hint="@string/hint_string_of_enterpriseAccount"
                 style="@style/item_in_registerActivity"/>
 
         </LinearLayout>

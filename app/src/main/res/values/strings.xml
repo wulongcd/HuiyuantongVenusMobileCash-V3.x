@@ -217,11 +217,11 @@
     <string name="string_of_enterpriseAccount">企业账号</string>
     <string name="string_of_setPassword">设置密码</string>
     <string name="string_of_ensurePassword">确认密码</string>
-    <string name="string_of_enterEnterpriseName">请输入企业名称</string>
-    <string name="string_of_enterAddress">请输入企业详细地址</string>
-    <string name="string_of_enterEnterprisePhone">请输入企业手机</string>
-    <string name="string_of_enterVerification">请输入验证码</string>
-    <string name="string_of_enterEnterpriseAccount">请输入企业账号</string>
+    <string name="hint_string_of_enterpriseName">请输入企业名称</string>
+    <string name="hint_string_of_address">请输入企业详细地址</string>
+    <string name="hint_string_of_enterprisePhone">请输入企业手机</string>
+    <string name="hint_string_of_verification">请输入验证码</string>
+    <string name="hint_string_of_enterpriseAccount">请输入企业账号</string>
     <string name="hint_string_of_setPassword">6-20位字母或数字</string>
     <string name="hint_string_of_ensurePassword">再次输入密码</string>
     <string name="enterpriseName_is_null">企业名称不能为空</string>
@@ -259,6 +259,7 @@
     <string name="hint_pwd">******</string>
     <string name="update_cashierInfo_success">修改收银员信息成功</string>
     <string name="add_cashierInfo_success">添加收银员成功</string>
+    <string name="delete_cashierInfo_success">删除收银员成功</string>
     <!--<string name="pwd_is_short">收银员密码不能小于6位</string>-->
     <!--<string name="pwd_is_long">收银员密码不能大于20位</string>-->
 
@@ -295,5 +296,15 @@
     <string name="choose_province">选择省份</string>
     <string name="choose_city">选择城市</string>
     <string name="choose_area">选择区域</string>
+
+    <!-- withdrawActivity -->
+    <string name="string_of_withdraw">提现</string>
+    <string name="string_of_withdrawMoney">提现金额</string>
+    <string name="string_of_choose_bank">选择银行</string>
+    <string name="string_of_enterVerification">输入验证码</string>
+    <string name="hint_string_of_choose_bank">请选择银行</string>
+    <string name="hint_string_of_mobile_number">请输入电话号码</string>
+    <string name="hint_string_of_enterVerification">请输入验证码</string>
+    <string name="string_of_mobile_number_is_null">电话号码不能为空</string>
 
 </resources>

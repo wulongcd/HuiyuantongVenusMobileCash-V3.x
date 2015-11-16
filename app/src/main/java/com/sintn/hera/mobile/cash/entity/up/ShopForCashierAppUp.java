@@ -8,23 +8,23 @@ public class ShopForCashierAppUp
 	// 店铺ID，创建时不填，更新时必填
 	private long shopId;
 	
-	// 店铺编号，必填，1-14个字符组成，不能包含特殊字符
+	// 店铺编号，必填，1-6个字符组成，不能包含特殊字符
 	private String code;
 	
-	// 店铺名称，必填，1-14个字符组成，不能包含特殊字符
+	// 店铺名称，必填，1-16个字符组成，不能包含特殊字符
 	private String name;
 	
 	// 店铺电话，必填，符合电话格式
 	private String phone;
 	
-	// 省ID，必填
-	private long provinceId;
+	// 省Code，必填，不是ID
+	private long provinceCode;
 	
-	// 市ID，必填
-	private long cityId;
+	// 市Code，必填，不是ID
+	private long cityCode;
 	
-	// 区ID，必填
-	private long areaId;
+	// 区Code，必填，不是ID
+	private long areaCode;
 	
 	// 店铺地址，必填，1-50个字符组成，不能包含特殊字符
 	private String address;
@@ -69,34 +69,34 @@ public class ShopForCashierAppUp
 		this.phone = phone;
 	}
 
-	public long getProvinceId()
+	public long getProvinceCode()
 	{
-		return provinceId;
+		return provinceCode;
 	}
 
-	public void setProvinceId(long provinceId)
+	public void setProvinceCode(long provinceCode)
 	{
-		this.provinceId = provinceId;
+		this.provinceCode = provinceCode;
 	}
 
-	public long getCityId()
+	public long getCityCode()
 	{
-		return cityId;
+		return cityCode;
 	}
 
-	public void setCityId(long cityId)
+	public void setCityCode(long cityCode)
 	{
-		this.cityId = cityId;
+		this.cityCode = cityCode;
 	}
 
-	public long getAreaId()
+	public long getAreaCode()
 	{
-		return areaId;
+		return areaCode;
 	}
 
-	public void setAreaId(long areaId)
+	public void setAreaCode(long areaCode)
 	{
-		this.areaId = areaId;
+		this.areaCode = areaCode;
 	}
 
 	public String getAddress()

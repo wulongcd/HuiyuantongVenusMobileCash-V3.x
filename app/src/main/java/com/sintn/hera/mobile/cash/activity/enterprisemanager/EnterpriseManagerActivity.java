@@ -26,6 +26,8 @@ import com.sintn.hera.mobile.cash.entity.down.ErrorObject;
 import com.sintn.hera.mobile.cash.entity.down.ShopForCashierAppDown;
 import com.sintn.hera.mobile.cash.entity.up.CommonPagerUp;
 import com.sintn.hera.mobile.cash.entity.up.EnterpriseForCashierAppUp;
+import com.sintn.hera.mobile.cash.entity.up.ShopForCashierAppUp;
+import com.sintn.hera.mobile.cash.event.MobileCashBaseCallbackEvent;
 import com.sintn.hera.mobile.cash.event.MobileCashBaseEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.QueryEnterpriseInfoEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.QueryShopListEvent;
@@ -84,10 +86,12 @@ public class EnterpriseManagerActivity extends BaseActivity implements PullToRef
     private CommonPagerUp commonPagerUp = null;
     private ShopListAdapter<ShopForCashierAppDown> shopListAdapter = null;
     private EnterpriseForCashierAppUp enterpriseForCashierAppUp = null;
+    private EnterpriseForCashierAppDown enterpriseForCashierAppDown = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        addCallbackEventListener(EventCode.CALLBACK_OF_SHOP_INFO_UPDATE);
     }
 
     @Override
@@ -153,6 +157,8 @@ public class EnterpriseManagerActivity extends BaseActivity implements PullToRef
         btn_in_enterpriseManagerActivity_of_submit.setOnClickListener(this);
         btn_in_enterpriseManagerActivity_of_industry.setOnClickListener(this);
 
+        rl_in_enterpriseManagerActivity_of_shopList.setBackgroundColor(getResources().getColor(R.color.base_bg));
+        rl_in_enterpriseManagerActivity_of_enterpriseInfo.setBackgroundColor(getResources().getColor(R.color.base_bg));
         ll_in_enterpriseManagerActivity_of_enterpriseName.setBackgroundColor(getResources().getColor(R.color.white));
         ll_in_enterpriseManagerActivity_of_detailedAddress.setBackgroundColor(getResources().getColor(R.color.white));
         ll_in_enterpriseManagerActivity_of_industry.setBackgroundColor(getResources().getColor(R.color.white));
@@ -248,7 +254,7 @@ public class EnterpriseManagerActivity extends BaseActivity implements PullToRef
             DialogUtils.showLoading(this, EventCode.HTTP_POST_UPDATE_ENTERPRISE_INFO);
         }
         AndroidEventManager.getInstance().addEventListener(EventCode.HTTP_POST_UPDATE_ENTERPRISE_INFO, this, true);
-        AndroidEventManager.getInstance().postEvent(EventCode.HTTP_POST_UPDATE_ENTERPRISE_INFO, 0, URLUtils.URL_POST_UPDATE_ENTERPRISE_INFO);
+        AndroidEventManager.getInstance().postEvent(EventCode.HTTP_POST_UPDATE_ENTERPRISE_INFO, 0, URLUtils.URL_POST_UPDATE_ENTERPRISE_INFO, enterpriseForCashierAppUp);
     }
 
     /**
@@ -274,6 +280,12 @@ public class EnterpriseManagerActivity extends BaseActivity implements PullToRef
                 if(queryEnterpriseInfoEvent.isOk()) {
                     if(queryEnterpriseInfoEvent.getResult() != null) {
                         EnterpriseForCashierAppDown enterpriseForCashierAppDown = queryEnterpriseInfoEvent.getResult();
+                        enterpriseForCashierAppUp.setCategory1Id(enterpriseForCashierAppDown.getCategory1().getId());
+                        List categoryIds = new ArrayList();
+                        for(CategoryForCashierAppDown c : enterpriseForCashierAppDown.getCategory2s()) {
+                            categoryIds.add(c.getId());
+                        }
+                        enterpriseForCashierAppUp.setCategory2Ids(categoryIds);
                         et_in_enterpriseManagerActivity_of_enterpriseName.setText(enterpriseForCashierAppDown.getName());
                         et_in_enterpriseManagerActivity_of_detailedAddress.setText(enterpriseForCashierAppDown.getAddress());
                         et_in_enterpriseManagerActivity_of_enterprisePhone.setText(enterpriseForCashierAppDown.getPhone());
@@ -343,6 +355,14 @@ public class EnterpriseManagerActivity extends BaseActivity implements PullToRef
                     }
                 }
             }
+        } else if(eventCode == EventCode.CALLBACK_OF_SHOP_INFO_UPDATE) {
+            DialogUtils.dissMissLoading(EventCode.CALLBACK_OF_SHOP_INFO_UPDATE);
+            MobileCashBaseCallbackEvent callbackEvent = (MobileCashBaseCallbackEvent) event;
+            if(callbackEvent.getReturnParam() != null) {
+                loadMoreOrRefresh = false;
+                initCommonPagerUp();
+                queryShopList(false);
+            }
         }
     }
 
@@ -398,6 +418,7 @@ public class EnterpriseManagerActivity extends BaseActivity implements PullToRef
     @Override
     public void OnRecyclerViewItemClicked(int position) {
         ShopForCashierAppDown shopForCashierAppDown = (ShopForCashierAppDown) shopListAdapter.getItem(position);
+        ShopManagerActivity.lunch(this, shopForCashierAppDown);
     }
 
     @Override

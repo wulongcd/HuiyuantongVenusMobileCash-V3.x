@@ -3,6 +3,8 @@ package com.sintn.hera.mobile.cash.activity.enterprisemanager;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,11 +15,13 @@ import com.sintn.hera.mobile.cash.EventCode;
 import com.sintn.hera.mobile.cash.R;
 import com.sintn.hera.mobile.cash.URLUtils;
 import com.sintn.hera.mobile.cash.activity.base.BaseActivity;
-import com.sintn.hera.mobile.cash.entity.conast.CashierEditMode;
 import com.sintn.hera.mobile.cash.entity.down.ErrorObject;
+import com.sintn.hera.mobile.cash.entity.down.ShopManagerAccountForCashierAppDown;
 import com.sintn.hera.mobile.cash.entity.up.ShopManagerAccountForCashierAppUp;
+import com.sintn.hera.mobile.cash.event.MobileCashBaseCallbackEvent;
 import com.sintn.hera.mobile.cash.event.MobileCashBaseEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.AddShopCashierEvent;
+import com.sintn.hera.mobile.cash.event.httpevent.cash.DeleteShopCashierEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.UpdateShopCashierEvent;
 import com.sintn.hera.mobile.cash.manager.ActivityBaseAttribute;
 import com.sintn.hera.mobile.cash.manager.AndroidEventManager;
@@ -43,8 +47,12 @@ public class CashierInfoActivity extends BaseActivity {
     private TextView tv_in_cashierInfoActivity_of_title;
     private Button btn_in_cashierInfoActivity_of_back;
     private Button btn_in_cashierInfoActivity_of_submit;
+    private FloatingActionButton fBtn_in_cashierInfoActivity_of_delete;
     private ShopManagerAccountForCashierAppUp shopManagerAccountForCashierAppUp = null;
-    private int mode;
+    private ShopManagerAccountForCashierAppDown shopManagerAccountForCashierAppDown =  null;
+    private int mode = CashierEditMode.ADD;
+    private long shopId;
+    private long cashierId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,25 +67,27 @@ public class CashierInfoActivity extends BaseActivity {
         tv_in_cashierInfoActivity_of_title = (TextView) findViewById(R.id.tv_normal_title_for_show_title);
         btn_in_cashierInfoActivity_of_back = (Button) findViewById(R.id.btn_normal_title_for_back);
         btn_in_cashierInfoActivity_of_submit = (Button) findViewById(R.id.btn_normal_title_for_right);
+        fBtn_in_cashierInfoActivity_of_delete = (FloatingActionButton) findViewById(R.id.fBtn_in_cashierInfoActivity_of_delete);
 
         LinearLayout ll_in_cashierInfoActivity_of_name = (LinearLayout) findViewById(R.id.ll_in_cashierInfoActivity_of_name);
         tv_in_cashierInfoActivity_of_name = (TextView) ll_in_cashierInfoActivity_of_name.findViewById(R.id.tv_in_infoActivity_item);
         et_in_cashierInfoActivity_of_name = (EditText) ll_in_cashierInfoActivity_of_name.findViewById(R.id.et_in_infoActivity_item);
 
-        LinearLayout ll_in_cashierInfoActivity_of_account = (LinearLayout) findViewById(R.id.ll_in_cashierInfoActivity_of_name);
+        LinearLayout ll_in_cashierInfoActivity_of_account = (LinearLayout) findViewById(R.id.ll_in_cashierInfoActivity_of_account);
         tv_in_cashierInfoActivity_of_account = (TextView) ll_in_cashierInfoActivity_of_account.findViewById(R.id.tv_in_infoActivity_item);
         et_in_cashierInfoActivity_of_account = (EditText) ll_in_cashierInfoActivity_of_account.findViewById(R.id.et_in_infoActivity_item);
 
-        LinearLayout ll_in_cashierInfoActivity_of_pwd = (LinearLayout) findViewById(R.id.ll_in_cashierInfoActivity_of_name);
+        LinearLayout ll_in_cashierInfoActivity_of_pwd = (LinearLayout) findViewById(R.id.ll_in_cashierInfoActivity_of_pwd);
         tv_in_cashierInfoActivity_of_pwd = (TextView) ll_in_cashierInfoActivity_of_pwd.findViewById(R.id.tv_in_infoActivity_item);
         et_in_cashierInfoActivity_of_pwd = (EditText) ll_in_cashierInfoActivity_of_pwd.findViewById(R.id.et_in_infoActivity_item);
 
-        mode = getIntent().getIntExtra("mode", CashierEditMode.ADD);
-        if(mode == CashierEditMode.ADD) {
-            shopManagerAccountForCashierAppUp = new ShopManagerAccountForCashierAppUp();
-        } else {
-            shopManagerAccountForCashierAppUp = (ShopManagerAccountForCashierAppUp) getIntent().getParcelableExtra("shopManagerAccountForCashierAppUp");
+        if(getIntent().hasExtra("shopManagerAccountForCashierAppDown")) {
+            mode = CashierEditMode.UPDATE;
+            shopManagerAccountForCashierAppDown = getIntent().getParcelableExtra("shopManagerAccountForCashierAppDown");
+            cashierId = shopManagerAccountForCashierAppDown.getId();
         }
+        shopId = getIntent().getLongExtra("shopId", 0);
+        shopManagerAccountForCashierAppUp = new ShopManagerAccountForCashierAppUp();
     }
 
     @Override
@@ -88,15 +98,17 @@ public class CashierInfoActivity extends BaseActivity {
         tv_in_cashierInfoActivity_of_name.setText(R.string.string_of_name);
         tv_in_cashierInfoActivity_of_account.setText(R.string.string_of_account);
         tv_in_cashierInfoActivity_of_pwd.setText(R.string.string_of_pwd);
-        et_in_cashierInfoActivity_of_name.setText(R.string.hint_string_of_name);
-        et_in_cashierInfoActivity_of_account.setText(R.string.hint_string_of_account);
-        et_in_cashierInfoActivity_of_pwd.setText(R.string.hint_string_of_pwd);
         btn_in_cashierInfoActivity_of_submit.setText(R.string.string_of_submit);
         btn_in_cashierInfoActivity_of_back.setOnClickListener(this);
         btn_in_cashierInfoActivity_of_submit.setOnClickListener(this);
+        fBtn_in_cashierInfoActivity_of_delete.setOnClickListener(this);
+        et_in_cashierInfoActivity_of_name.setHint(R.string.hint_string_of_name);
+        et_in_cashierInfoActivity_of_account.setHint(R.string.hint_string_of_account);
+        et_in_cashierInfoActivity_of_pwd.setHint(R.string.hint_string_of_pwd);
+        et_in_cashierInfoActivity_of_pwd.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
         if(mode == CashierEditMode.UPDATE) {
-            et_in_cashierInfoActivity_of_name.setText(shopManagerAccountForCashierAppUp.getName());
-            et_in_cashierInfoActivity_of_account.setText(shopManagerAccountForCashierAppUp.getUsername());
+            et_in_cashierInfoActivity_of_name.setText(shopManagerAccountForCashierAppDown.getName());
+            et_in_cashierInfoActivity_of_account.setText(shopManagerAccountForCashierAppDown.getUsername());
             et_in_cashierInfoActivity_of_pwd.setText(R.string.hint_pwd);
         }
     }
@@ -104,26 +116,31 @@ public class CashierInfoActivity extends BaseActivity {
     /**
      * 初始化添加或更新收银员实体
      */
-    private void initShopManagerAccountForCashierAppUp() {
+    private boolean initShopManagerAccountForCashierAppUp() {
         if(et_in_cashierInfoActivity_of_name.getText().toString().toString().length() <= 0) {
             toastManager.show(R.string.name_is_null);
-            return;
+            return false;
         }
         if(et_in_cashierInfoActivity_of_account.getText().toString().trim().length() <= 0) {
             toastManager.show(R.string.account_is_null);
-            return;
+            return false;
         }
         if(et_in_cashierInfoActivity_of_pwd.getText().toString().trim().length() <= 0) {
             toastManager.show(R.string.pwd_is_null);
-            return;
+            return false;
         }
+        if(mode == CashierEditMode.UPDATE) {
+            shopManagerAccountForCashierAppUp.setId(cashierId);
+        }
+        shopManagerAccountForCashierAppUp.setShopId(shopId);
         shopManagerAccountForCashierAppUp.setPassword(et_in_cashierInfoActivity_of_pwd.getText().toString().trim());
         shopManagerAccountForCashierAppUp.setName(et_in_cashierInfoActivity_of_name.getText().toString().trim());
         shopManagerAccountForCashierAppUp.setUsername(et_in_cashierInfoActivity_of_account.getText().toString().trim());
+        return true;
     }
 
     /**
-     * 添加收银员
+     * 添加收银员信息
      * @param isShow 是否加载动画
      */
     protected void submitCashierInfo(boolean isShow) {
@@ -146,6 +163,18 @@ public class CashierInfoActivity extends BaseActivity {
         AndroidEventManager.getInstance().postEvent(EventCode.HTTP_POST_UPDATE_SHOP_CASHIER, 0, URLUtils.URL_POST_UPDATE_SHOP_CASHIER, shopManagerAccountForCashierAppUp);
     }
 
+    /**
+     * 删除收银员信息
+     * @param isShow 是否加载动画
+     */
+    protected void deleteCashierInfo(boolean isShow) {
+        if(isShow) {
+            DialogUtils.showLoading(this, EventCode.HTTP_GET_DELETE_SHOP_CASHIER);
+        }
+        AndroidEventManager.getInstance().addEventListener(EventCode.HTTP_GET_DELETE_SHOP_CASHIER, this, true);
+        AndroidEventManager.getInstance().postEvent(EventCode.HTTP_GET_DELETE_SHOP_CASHIER, 0, URLUtils.URL_GET_DELETE_SHOP_CASHIER + "/" + cashierId);
+    }
+
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
@@ -154,12 +183,16 @@ public class CashierInfoActivity extends BaseActivity {
             case R.id.btn_normal_title_for_back:
                 onBackPressed();
                 break;
+            case R.id.fBtn_in_cashierInfoActivity_of_delete:
+                deleteCashierInfo(true);
+                break;
             case R.id.btn_normal_title_for_right:
-                initShopManagerAccountForCashierAppUp();
-                if(mode == CashierEditMode.UPDATE) {
-                    updateCashierInfo(true);
-                } else {
-                    submitCashierInfo(true);
+                if(initShopManagerAccountForCashierAppUp()) {
+                    if(mode == CashierEditMode.UPDATE) {
+                        updateCashierInfo(true);
+                    } else {
+                        submitCashierInfo(true);
+                    }
                 }
                 break;
         }
@@ -176,6 +209,7 @@ public class CashierInfoActivity extends BaseActivity {
                 if(updateShopCashierEvent.isOk()) {
                     if(("ok").equals(updateShopCashierEvent.getResult())) {
                         toastManager.show(R.string.update_cashierInfo_success);
+                        updateCashierCallBack();
                     }
                 } else {
                     if(updateShopCashierEvent.getErrorObject() == null) {
@@ -192,6 +226,7 @@ public class CashierInfoActivity extends BaseActivity {
                 if(addShopCashierEvent.isOk()) {
                     if(("ok").equals(addShopCashierEvent.getResult())) {
                         toastManager.show(R.string.add_cashierInfo_success);
+                        updateCashierCallBack();
                     }
                 } else {
                     if(addShopCashierEvent.getErrorObject() == null) {
@@ -201,7 +236,32 @@ public class CashierInfoActivity extends BaseActivity {
                     }
                 }
             }
+        } else if(eventCode == EventCode.HTTP_GET_DELETE_SHOP_CASHIER) {
+            DialogUtils.dissMissLoading(EventCode.HTTP_GET_DELETE_SHOP_CASHIER);
+            DeleteShopCashierEvent deleteShopCashierEvent = (DeleteShopCashierEvent) event;
+            if(deleteShopCashierEvent.isNetSuccess()) {
+                if(deleteShopCashierEvent.isOk()) {
+                    if(("ok").equals(deleteShopCashierEvent.getResult())) {
+                        toastManager.show(R.string.delete_cashierInfo_success);
+                        updateCashierCallBack();
+                    }
+                } else {
+                    if(deleteShopCashierEvent.getErrorObject() == null) {
+                        toastManager.show(deleteShopCashierEvent.getStrHttpResult());
+                    } else {
+                        toastManager.show(ErrorObject.formatError(deleteShopCashierEvent.getErrorObject()));
+                    }
+                }
+            }
         }
+    }
+
+    /**
+     * 收银员信息修改成功后执行的回调
+     */
+    private void updateCashierCallBack() {
+        AndroidEventManager.getInstance().postEvent(new MobileCashBaseCallbackEvent(EventCode.CALLBACK_OF_CASHIER_INFO_UPDATE), 0, 0);
+        this.finish();
     }
 
     @Override
@@ -216,29 +276,21 @@ public class CashierInfoActivity extends BaseActivity {
         super.onBackPressed();
     }
 
-    public static void lunch(Activity activity) {
+    public static void lunch(Activity activity, long shopId) {
         if (!CommonUtils.isActivityAreRunningBefore(activity, CashierInfoActivity.class)) {
             Intent intent = new Intent();
+            intent.putExtra("shopId", shopId);
             intent.setClass(activity, CashierInfoActivity.class);
             activity.startActivity(intent);
         }
     }
 
-    public static void lunch(Activity activity, int mode) {
+    public static void lunch(Activity activity, long shopId, ShopManagerAccountForCashierAppDown shopManagerAccountForCashierAppDown) {
         if (!CommonUtils.isActivityAreRunningBefore(activity, CashierInfoActivity.class)) {
             Intent intent = new Intent();
             intent.setClass(activity, CashierInfoActivity.class);
-            intent.putExtra("mode", mode);
-            activity.startActivity(intent);
-        }
-    }
-
-    public static void lunch(Activity activity, int mode, ShopManagerAccountForCashierAppUp shopManagerAccountForCashierAppUp) {
-        if (!CommonUtils.isActivityAreRunningBefore(activity, CashierInfoActivity.class)) {
-            Intent intent = new Intent();
-            intent.setClass(activity, CashierInfoActivity.class);
-            intent.putExtra("mode", mode);
-            intent.putExtra("shopManagerAccountForCashierAppUp", shopManagerAccountForCashierAppUp);
+            intent.putExtra("shopId", shopId);
+            intent.putExtra("shopManagerAccountForCashierAppDown", shopManagerAccountForCashierAppDown);
             activity.startActivity(intent);
         }
     }
@@ -246,5 +298,10 @@ public class CashierInfoActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    public static class CashierEditMode {
+        public static int ADD = 0;
+        public static int UPDATE = 1;
     }
 }

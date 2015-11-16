@@ -122,6 +122,18 @@
         <activity
             android:name="com.sintn.hera.mobile.cash.activity.enterprisemanager.ShopManagerActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 省级地区列表显示界面 -->
+        <activity
+            android:name="com.sintn.hera.mobile.cash.activity.enterprisemanager.ProvinceListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 市级地区列表显示界面 -->
+        <activity
+            android:name="com.sintn.hera.mobile.cash.activity.enterprisemanager.CityListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 区级地区列表显示界面 -->
+        <activity
+            android:name="com.sintn.hera.mobile.cash.activity.enterprisemanager.AreaListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <!-- 收银员信息显示界面 -->
         <activity
             android:name="com.sintn.hera.mobile.cash.activity.enterprisemanager.CashierInfoActivity"

@@ -31,7 +31,7 @@ public class CashierListAdapter<T> extends BaseRecyclerAdapter<ShopManagerAccoun
 	{
 		this.context = context;
 		convertViewWidth = RelativeLayout.LayoutParams.FILL_PARENT; // 宽度
-		convertViewHeight = DensityManagerUtils.getScreenHightPx(context) / 16 * 1; // 高度
+		convertViewHeight = DensityManagerUtils.getScreenHightPx(context) / 12 * 1; // 高度
 		this.shopName = shopName;
 	}
 
@@ -52,19 +52,12 @@ public class CashierListAdapter<T> extends BaseRecyclerAdapter<ShopManagerAccoun
 		ViewHolder viewHolder = (ViewHolder) holder;
 		ShopManagerAccountForCashierAppDown object = objects.get(position);
 		onCreateView(viewHolder.getItemView());
+		viewHolder.short_downLine_in_managerActivity_listItem.setVisibility(View.VISIBLE);
+		viewHolder.long_downLine_in_managerActivity_listItem.setVisibility(View.GONE);
 		if(position == 0) {
 			viewHolder.upLine_in_managerActivity_listItem.setVisibility(View.VISIBLE);
-			viewHolder.short_downLine_in_managerActivity_listItem.setVisibility(View.VISIBLE);
-			viewHolder.short_downLine_in_managerActivity_listItem.setVisibility(View.GONE);
 		} else {
 			viewHolder.upLine_in_managerActivity_listItem.setVisibility(View.GONE);
-			if(position == getCount() - 1) {
-				viewHolder.short_downLine_in_managerActivity_listItem.setVisibility(View.GONE);
-				viewHolder.long_downLine_in_managerActivity_listItem.setVisibility(View.VISIBLE);
-			} else {
-				viewHolder.short_downLine_in_managerActivity_listItem.setVisibility(View.VISIBLE);
-				viewHolder.long_downLine_in_managerActivity_listItem.setVisibility(View.GONE);
-			}
 		}
 		viewHolder.tv_in_managerActivity_ListItem_of_name.setText(object.getName());
 		viewHolder.tv_in_managerActivity_ListItem_of_desc.setText(shopName);

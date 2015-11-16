@@ -26,6 +26,7 @@ import com.sintn.hera.mobile.cash.entity.down.ShopForCashierAppDown;
 import com.sintn.hera.mobile.cash.entity.down.ShopManagerAccountForCashierAppDown;
 import com.sintn.hera.mobile.cash.entity.up.ShopForCashierAppUp;
 import com.sintn.hera.mobile.cash.entity.up.ShopManagerAccountForCashierAppQueryUp;
+import com.sintn.hera.mobile.cash.event.MobileCashBaseCallbackEvent;
 import com.sintn.hera.mobile.cash.event.MobileCashBaseEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.AddShopEvent;
 import com.sintn.hera.mobile.cash.event.httpevent.cash.QueryShopCashierListEvent;
@@ -90,10 +91,12 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
     private ShopForCashierAppUp shopForCashierAppUp = null;
     private int mode = ShopEditMode.MODE_ADD;
     private ShopForCashierAppDown shopForCashierAppDown = null;
+    private long shopId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        addCallbackEventListener(EventCode.CALLBACK_OF_CASHIER_INFO_UPDATE);
     }
 
     @Override
@@ -104,6 +107,7 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
         btn_in_shopManagerActivity_of_back = (Button) findViewById(R.id.btn_normal_title_for_back);
         btn_in_shopManagerActivity_of_submit = (Button) findViewById(R.id.btn_normal_title_for_right);
         fBtn_in_shopManagerActivity_of_add = (FloatingActionButton) findViewById(R.id.fBtn_in_shopManagerActivity_of_add);
+        prv_in_shopManagerActivity_for_list = (PtrRecyclerView) findViewById(R.id.prv_in_shopManagerActivity_for_list);
 
         rl_in_shopManagerActivity_of_shopInfo = (RelativeLayout) findViewById(R.id.rl_in_shopManagerActivity_of_shopInfo);
         tv_in_shopManagerActivity_of_shopInfo = (TextView) rl_in_shopManagerActivity_of_shopInfo.findViewById(R.id.tv_in_managerActivity_item_of_name);
@@ -137,6 +141,7 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
             shopForCashierAppDown = getIntent().getParcelableExtra("shopForCashierAppDown");
             mode = ShopEditMode.MODE_UPDATE;
             cashierListAdapter = new CashierListAdapter<ShopManagerAccountForCashierAppDown>(this, shopForCashierAppDown.getName());
+            shopId = shopForCashierAppDown.getId();
             shopManagerAccountForCashierAppQueryUp = new ShopManagerAccountForCashierAppQueryUp();
         }
         shopForCashierAppUp = new ShopForCashierAppUp();
@@ -159,6 +164,8 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
         btn_in_shopManagerActivity_of_submit.setOnClickListener(this);
         btn_in_shopManagerActivity_of_address.setOnClickListener(this);
 
+        rl_in_shopManagerActivity_of_cashierList.setBackgroundColor(getResources().getColor(R.color.base_bg));
+        rl_in_shopManagerActivity_of_shopInfo.setBackgroundColor(getResources().getColor(R.color.base_bg));
         ll_in_shopManagerActivity_of_shopNumber.setBackgroundColor(getResources().getColor(R.color.white));
         ll_in_shopManagerActivity_of_shopName.setBackgroundColor(getResources().getColor(R.color.white));
         ll_in_shopManagerActivity_of_customerService.setBackgroundColor(getResources().getColor(R.color.white));
@@ -169,13 +176,12 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
         tv_in_shopManagerActivity_of_customerService.setText(R.string.string_of_customerService);
         tv_in_shopManagerActivity_of_detailedAddress.setText(R.string.string_of_detailAddress);
         tv_in_shopManagerActivity_of_address.setText(R.string.string_of_shopAddress);
-        if(mode == ShopEditMode.MODE_ADD) {
-            et_in_shopManagerActivity_of_shopNumber.setHint(R.string.hint_of_shopNumber);
-            et_in_shopManagerActivity_of_shopName.setHint(R.string.hint_of_shopName);
-            et_in_shopManagerActivity_of_customerService.setHint(R.string.hint_of_customerService);
-            et_in_shopManagerActivity_of_detailedAddress.setHint(R.string.string_of_enterAddress);
-            btn_in_shopManagerActivity_of_address.setHint(R.string.hint_of_choose_shopAddress);
-        } else {
+        et_in_shopManagerActivity_of_shopNumber.setHint(R.string.hint_of_shopNumber);
+        et_in_shopManagerActivity_of_shopName.setHint(R.string.hint_of_shopName);
+        et_in_shopManagerActivity_of_customerService.setHint(R.string.hint_of_customerService);
+        et_in_shopManagerActivity_of_detailedAddress.setHint(R.string.hint_string_of_address);
+        btn_in_shopManagerActivity_of_address.setHint(R.string.hint_of_choose_shopAddress);
+        if(mode == ShopEditMode.MODE_UPDATE) {
             cashierListAdapter.setOnRecyclerViewItemClickListener(this);
             prv_in_shopManagerActivity_for_list.setAdapter(cashierListAdapter);
             prv_in_shopManagerActivity_for_list.setMode(PullToRefreshBase.Mode.BOTH);
@@ -184,11 +190,15 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
             prv_in_shopManagerActivity_for_list.setLayoutManager(manager);
             prv_in_shopManagerActivity_for_list.setOnRefreshListener(this);
 
-            et_in_shopManagerActivity_of_shopNumber.setHint("");
-            et_in_shopManagerActivity_of_shopName.setHint("");
-            et_in_shopManagerActivity_of_customerService.setHint("");
-            et_in_shopManagerActivity_of_detailedAddress.setHint("");
-            btn_in_shopManagerActivity_of_address.setHint("");
+            et_in_shopManagerActivity_of_shopNumber.setText(shopForCashierAppDown.getCode());
+            et_in_shopManagerActivity_of_shopName.setText(shopForCashierAppDown.getName());
+            et_in_shopManagerActivity_of_customerService.setText(shopForCashierAppDown.getPhone());
+            btn_in_shopManagerActivity_of_address.setText(shopForCashierAppDown.getProvinceDown().getName() + shopForCashierAppDown.getCityDown().getName()  + shopForCashierAppDown.getAreaDown().getName());
+            et_in_shopManagerActivity_of_detailedAddress.setText(shopForCashierAppDown.getAddress());
+
+            shopForCashierAppUp.setProvinceCode(Long.parseLong(shopForCashierAppDown.getProvinceDown().getCode()));
+            shopForCashierAppUp.setCityCode(Long.parseLong(shopForCashierAppDown.getCityDown().getCode()));
+            shopForCashierAppUp.setAreaCode(Long.parseLong(shopForCashierAppDown.getAreaDown().getCode()));
             initShopManagerAccountForCashierAppQueryUp();
             queryCashierList(true);
         }
@@ -203,6 +213,9 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
         } else {
             page = 0;
             loadSize = 0;
+        }
+        if(mode == ShopEditMode.MODE_UPDATE && shopManagerAccountForCashierAppQueryUp != null) {
+            shopManagerAccountForCashierAppQueryUp.setShopId(shopForCashierAppDown.getId());
         }
         shopManagerAccountForCashierAppQueryUp.setPage(page);
         shopManagerAccountForCashierAppQueryUp.setSize(size);
@@ -236,6 +249,9 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
             toastManager.show(R.string.detailAddress_is_null);
             return false;
         }
+        if(mode == ShopEditMode.MODE_UPDATE ) {
+            shopForCashierAppUp.setShopId(shopId);
+        }
         shopForCashierAppUp.setCode(et_in_shopManagerActivity_of_shopNumber.getText().toString().trim());
         shopForCashierAppUp.setName(et_in_shopManagerActivity_of_shopName.getText().toString().trim());
         shopForCashierAppUp.setPhone(et_in_shopManagerActivity_of_customerService.getText().toString().trim());
@@ -264,7 +280,7 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
                 }
                 break;
             case R.id.fBtn_in_shopManagerActivity_of_add:
-                CashierInfoActivity.lunch(this);
+                CashierInfoActivity.lunch(this, shopId);
                 break;
             default:
                 break;
@@ -280,7 +296,7 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
             DialogUtils.showLoading(this, EventCode.HTTP_POST_UPDATE_SHOP_INFO);
         }
         AndroidEventManager.getInstance().addEventListener(EventCode.HTTP_POST_UPDATE_SHOP_INFO, this, true);
-        AndroidEventManager.getInstance().postEvent(EventCode.HTTP_POST_UPDATE_SHOP_INFO, 0, URLUtils.URL_POST_UPDATE_SHOP_INFO);
+        AndroidEventManager.getInstance().postEvent(EventCode.HTTP_POST_UPDATE_SHOP_INFO, 0, URLUtils.URL_POST_UPDATE_SHOP_INFO, shopForCashierAppUp);
     }
 
     /**
@@ -347,7 +363,7 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
                 if(updateShopInfoEvent.isOk()) {
                     if("ok".equals(updateShopInfoEvent.getResult())) {
                         toastManager.show(R.string.update_shopInfo_success);
-                        this.finish();
+                        updateShopInfoCallBack();
                     }
                 } else {
                     if(updateShopInfoEvent.getErrorObject() == null) {
@@ -364,7 +380,7 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
                 if(addShopEvent.isOk()) {
                     if("ok".equals(addShopEvent.getResult())) {
                         toastManager.show(R.string.add_shop_success);
-                        this.finish();
+                        updateShopInfoCallBack();
                     }
                 } else {
                     if(addShopEvent.getErrorObject() == null) {
@@ -374,7 +390,23 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
                     }
                 }
             }
+        } else if(eventCode == EventCode.CALLBACK_OF_CASHIER_INFO_UPDATE) {
+            DialogUtils.dissMissLoading(EventCode.CALLBACK_OF_CASHIER_INFO_UPDATE);
+            MobileCashBaseCallbackEvent callbackEvent = (MobileCashBaseCallbackEvent) event;
+            if(callbackEvent.getReturnParam() != null) {
+                loadMoreOrRefresh = false;
+                initShopManagerAccountForCashierAppQueryUp();
+                queryCashierList(false);
+            }
         }
+    }
+
+    /**
+     * 收银员信息修改成功后执行的回调
+     */
+    private void updateShopInfoCallBack() {
+        AndroidEventManager.getInstance().postEvent(new MobileCashBaseCallbackEvent(EventCode.CALLBACK_OF_SHOP_INFO_UPDATE), 0, 0);
+        this.finish();
     }
 
     @Override
@@ -394,9 +426,9 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
             RegionForCashierAppDown area = (RegionForCashierAppDown) data.getCharSequenceArrayListExtra(RegionListAdapter.RegionList.AREA).get(0);
             industry += area.getName();
             btn_in_shopManagerActivity_of_address.setText(industry);
-            shopForCashierAppUp.setProvinceId(province.getId());
-            shopForCashierAppUp.setCityId(city.getId());
-            shopForCashierAppUp.setAreaId(area.getId());
+            shopForCashierAppUp.setProvinceCode(Long.parseLong(province.getCode()));
+            shopForCashierAppUp.setCityCode(Long.parseLong(city.getCode()));
+            shopForCashierAppUp.setAreaCode(Long.parseLong(area.getCode()));
         }
     }
 
@@ -414,7 +446,7 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
         }
     }
 
-    public static void lunch(Activity activity, String shopForCashierAppDown) {
+    public static void lunch(Activity activity, ShopForCashierAppDown shopForCashierAppDown) {
         if (!CommonUtils.isActivityAreRunningBefore(activity, ShopManagerActivity.class)) {
             Intent intent = new Intent();
             intent.setClass(activity, ShopManagerActivity.class);
@@ -430,7 +462,8 @@ public class ShopManagerActivity extends BaseActivity implements PullToRefreshBa
 
     @Override
     public void OnRecyclerViewItemClicked(int position) {
-        ShopForCashierAppDown shopForCashierAppDown = (ShopForCashierAppDown) cashierListAdapter.getItem(position);
+        ShopManagerAccountForCashierAppDown shopManagerAccountForCashierAppDown = (ShopManagerAccountForCashierAppDown) cashierListAdapter.getItem(position);
+        CashierInfoActivity.lunch(this, shopId, shopManagerAccountForCashierAppDown);
     }
 
     @Override
