@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cf0f0f0"
+    android:orientation="vertical" >
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="95"
+        layout="@layout/activity_base_attribute_btn_title_left_back" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#d4d6d9" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+
+    <!--
+         <Spinner
+        android:id="@+id/sp_in_walletwithdrawalsactivty_for_cards"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_weight="108"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:spinnerMode="dropdown"
+        tools:ignore="UnusedAttribute" />
+    -->
+
+    <RelativeLayout
+        android:id="@+id/rl_in_walletwithdrawalsactivity_for_show_bank"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_weight="95"
+        android:background="@android:color/white"
+        android:clickable="true" >
+
+        <Button
+            android:id="@+id/btn_in_walletwithdrawalsactivity_for_show_bankList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@android:color/white"
+            android:clickable="false"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="请选择银行和账户"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:id="@+id/iv_in_walletwithdrawalsactivity_for_bankList_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/btn_in_walletwithdrawalsactivity_for_show_bankList"
+            android:background="@drawable/arrow_down"
+            android:clickable="false" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_in_walletwithdrawlsactivity_for_bankList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_weight="1018"
+        android:background="@android:color/transparent"
+        android:divider="@color/transparent"
+        android:dividerHeight="0dp"
+        android:listSelector="@drawable/selector_white_f0f0f0"
+        android:padding="1dp"
+        android:scrollbars="none"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_in_walletwithdrawlsactivity_for_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1018"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="108"
+            android:background="@android:color/white"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:adjustViewBounds="true"
+                android:background="@color/transparent"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/bindphone_money" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="#f0f0f0" />
+
+            <com.sintn.hera.assistant.widget.view.EditTextWithFrame
+                android:id="@+id/et_in_walletwithdrawalsactivty_for_money"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="12dp"
+                android:background="@android:color/white"
+                android:cursorVisible="true"
+                android:inputType="phone"
+                android:singleLine="true"
+                android:textColor="@color/first_class_text"
+                android:textCursorDrawable="@null"
+                android:textSize="14sp"
+                tools:ignore="TextFields,SpUsage,UnusedAttribute" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="108"
+            android:background="@android:color/white"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:adjustViewBounds="true"
+                android:background="@color/transparent"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/bindphone_phone" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="#f0f0f0" />
+
+            <com.sintn.hera.assistant.widget.view.EditTextWithFrame
+                android:id="@+id/et_in_walletwithdrawalsactivty_for_phone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="12dp"
+                android:background="@android:color/white"
+                android:cursorVisible="true"
+                android:inputType="phone"
+                android:singleLine="true"
+                android:textColor="@color/first_class_text"
+                android:textCursorDrawable="@null"
+                android:textSize="14sp"
+                tools:ignore="TextFields,SpUsage,UnusedAttribute" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="108"
+            android:background="@android:color/white"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:adjustViewBounds="true"
+                android:background="@color/transparent"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/bindphone_code" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="#f0f0f0" />
+
+            <com.sintn.hera.assistant.widget.view.EditTextWithFrame
+                android:id="@+id/et_in_walletwithdrawalsactivty_for_code"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:cursorVisible="true"
+                android:inputType="number"
+                android:paddingRight="12dp"
+                android:singleLine="true"
+                android:textColor="@color/first_class_text"
+                android:textColorHint="@color/third_class_text"
+                android:textCursorDrawable="@null"
+                android:textSize="14sp"
+                tools:ignore="TextFields,SpUsage,UnusedAttribute,NestedWeights" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#f0f0f0" />
+
+            <Button
+                android:id="@+id/btn_in_walletwithdrawalsactivty_for_get_code"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/selector_white_f0f0f0"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="获取验证码"
+                android:textColor="@color/selector_black_white"
+                android:textSize="14sp"
+                tools:ignore="SpUsage,HardcodedText" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_in_walletwithdrawalsactivty_for_sure"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="108"
+            android:background="@drawable/selector_call_back"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="提现"
+                android:textColor="@color/selector_white_black"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="586" />
+    </LinearLayout>
+
+</LinearLayout>

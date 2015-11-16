@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vg_in_fragment_of_walletout_for_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ca8a8a8" />
+
+    <include
+        android:id="@+id/rl_in_fragment_of_performance_for_show_date"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="80"
+        layout="@layout/zone_mainactivity_layout_for_fragment_of_select_time" />
+
+    <View
+        android:id="@+id/down_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ca8a8a8" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ca8a8a8" />
+
+    <com.sintn.hera.assistant.widget.view.xlistview.XListView
+        android:id="@+id/xlv_in_fragment_of_walletout_for_lists"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1028"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@color/cf0f0f0"
+        android:dividerHeight="1dp"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="vertical" />
+
+</LinearLayout>

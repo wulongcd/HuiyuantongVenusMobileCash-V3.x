@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vg_in_fragment_of_walletin_for_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <!-- <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="80"
+        android:background="@color/transparent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:orientation="horizontal"
+            tools:ignore="NestedWeights" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@color/transparent"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:paddingLeft="9.6dp"
+                android:paddingRight="9.6dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/date" />
+
+            <Button
+                android:id="@+id/btn_in_fragment_of_walletin_for_date_start"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/shape_trans_noconeners_edittext"
+                android:gravity="left|center_vertical"
+                android:hint="@string/set_start_time"
+                android:singleLine="true"
+                android:textColor="@color/c333333"
+                android:textSize="14sp"
+                tools:ignore="NestedWeights" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="9.6dp"
+            android:paddingRight="9.6dp"
+            android:text="@string/zhi"
+            android:textColor="@color/c333333"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:orientation="horizontal"
+            tools:ignore="NestedWeights" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@color/transparent"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:paddingLeft="9.6dp"
+                android:paddingRight="9.6dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/date" />
+
+            <Button
+                android:id="@+id/btn_in_fragment_of_walletin_for_date_end"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/shape_trans_noconeners_edittext"
+                android:gravity="left|center_vertical"
+                android:hint="@string/set_end_time"
+                android:singleLine="true"
+                android:textColor="@color/c333333"
+                android:textSize="14sp"
+                tools:ignore="NestedWeights" />
+        </LinearLayout>
+    </LinearLayout> -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ca8a8a8" />
+
+    <include
+        android:id="@+id/rl_in_fragment_of_performance_for_show_date"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="80"
+        layout="@layout/zone_mainactivity_layout_for_fragment_of_select_time" />
+
+    <View
+        android:id="@+id/down_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ca8a8a8" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ca8a8a8" />
+
+    <com.sintn.hera.assistant.widget.view.xlistview.XListView
+        android:id="@+id/xlv_in_fragment_of_walletin_for_lists"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1028"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@color/cf0f0f0"
+        android:dividerHeight="1dp"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="vertical" />
+
+</LinearLayout>
